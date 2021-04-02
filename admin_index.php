@@ -15,7 +15,7 @@
         <h2>Sistem Presensi</h2>
       </header>
       <nav>
-          <a href="#">
+          <div class="utility"><a href="#">
             <img src="img/user_icon.png" alt="user" >
             Display Name
           </a>
@@ -26,11 +26,12 @@
           <a href="#">
             <img src="img/gear_icon_flip.png" alt="control">  
             Control
-          </a>
-          <a href="#" class="logout">
+          </a></div>
+          
+          <div class="logout"><a href="#">
             <img src="img/logout_icon.png" alt="logout">
             Logout
-          </a>
+          </a></div>
       </nav>
     </div>
 

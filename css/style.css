@@ -13,7 +13,6 @@
   position: fixed;
   flex-direction: row;
   background: rgb(255, 255, 255);
-  /* padding: 5px; */
 }
 
 .title{
@@ -62,7 +61,7 @@
 .content-wrapper{
   background-color: cadetblue;
   display: flex;
-  flex-basis: 75%;
+  flex-basis: 78%;
   flex-direction: column;
   margin-top: 0px;
   overflow-y: auto;
@@ -70,9 +69,8 @@
 
 .sidebar{
   display: flex;
-  flex-basis: 25%;
+  flex-basis: 22%;
   flex-direction: column;
-  align-items: stretch;
   background-image: url("/img/bg_login.jpg");
   background-size: auto 100%;
   background-attachment: fixed; 
@@ -81,9 +79,9 @@
 }
 .sidebar nav{
   display: flex;
+  height: 100%;
   flex-direction: column;
-  flex-wrap: nowrap;
-
+  justify-content: space-between;
 }
 .sidebar header{
   text-align: center;
@@ -96,23 +94,23 @@
   height: 40px;
 }
 .sidebar nav a{
-  display: flex;
+  display: block;
   margin: 5px auto 5px 0px;
   padding: 5px 10px 5px 10px;
   text-decoration: none;
-  display:block;
-  width: 100%;
+  /* width: 100%; */
   color: white;
 }
-.sidebar .logout{
+.sidebar .logout a{
   color: black;
+  align-items: flex-end;
+  margin: 0px auto 30px;
 }
 .sidebar nav a:hover{
   background-color:lightgray;
   color:black;
   font-weight: bold;
 }
-
 
 
 
