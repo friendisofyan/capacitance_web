@@ -1,0 +1,8 @@
+/*css stylesheet for background*/
+
+body{
+  background-image: url("/img/bg_login.jpg");
+  background-size: 100% 95%; 
+  background-attachment: fixed; 
+  background-repeat: no-repeat;
+}

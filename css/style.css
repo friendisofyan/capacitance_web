@@ -1,0 +1,121 @@
+/*css stylesheet*/
+
+/* margin : top right bottom left */
+*{
+  box-sizing: border-box;
+}
+
+
+#main-wrapper{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  flex-direction: row;
+  background: rgb(255, 255, 255);
+  /* padding: 5px; */
+}
+
+.title{
+  margin: 30px auto 30px auto;
+  text-align: center;
+  width: 50%;
+  color: white;
+  text-shadow: 4px 3px #000000
+}
+
+.form-wrapper{
+  margin: 0px auto;
+  background-color: white;
+  text-align: center;
+  width: 350px;
+  border: 2px solid rgb(24, 0, 112);
+  border-radius: 20px;
+  padding: 10px 0px 10px 0px;
+}
+.form-wrapper a:hover{
+  text-decoration: none;
+  font-weight: bold;
+}
+.grey{
+  width: 50%;
+  text-align: left;
+  margin-left: 50px;
+  color: grey;
+}
+
+.form{
+  margin: 0px 0px 15px 3px;
+  width: 250px;
+  border: 0px;
+  border-bottom: 2px solid black;
+}
+
+.sbmt{
+  margin: 0px auto 0px 200px;
+}
+
+.errorMessage{
+  color: red;
+}
+
+.content-wrapper{
+  background-color: cadetblue;
+  display: flex;
+  flex-basis: 75%;
+  flex-direction: column;
+  margin-top: 0px;
+  overflow-y: auto;
+}
+
+.sidebar{
+  display: flex;
+  flex-basis: 25%;
+  flex-direction: column;
+  align-items: stretch;
+  background-image: url("/img/bg_login.jpg");
+  background-size: auto 100%;
+  background-attachment: fixed; 
+  background-repeat: no-repeat;
+  overflow: auto;
+}
+.sidebar nav{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+}
+.sidebar header{
+  text-align: center;
+  color: white;
+  background-color:navy;
+  padding: 2px;
+}
+.sidebar nav img{
+  margin-right: 10px;
+  height: 40px;
+}
+.sidebar nav a{
+  display: flex;
+  margin: 5px auto 5px 0px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  display:block;
+  width: 100%;
+  color: white;
+}
+.sidebar .logout{
+  color: black;
+}
+.sidebar nav a:hover{
+  background-color:lightgray;
+  color:black;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
