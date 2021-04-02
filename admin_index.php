@@ -37,6 +37,7 @@
 
     <div class="content-wrapper">
       <center><h1>INI DASHBOARD ADMIN</h1></center>
+      <img src="img/test.jpg" alt="test doang">
     </div>
 
   </div>

@@ -1,4 +1,4 @@
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
   #main-wrapper{
     display: flex;
     flex-direction: column;
@@ -6,7 +6,7 @@
   .sidebar{
     display: flex;
     padding-left: 0px;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     position: relative;
     height: auto;
@@ -17,8 +17,6 @@
   }
   .content-wrapper {
     display: flex;
-    margin-left: 0px;
-    position: inherit;
   }
 }
 
