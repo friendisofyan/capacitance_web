@@ -1,6 +1,9 @@
 <?php
-  // header("location: includes/loggedin.inc.php");
-  // exit();
+  include_once 'includes/loggedin.inc.php';
+  if (basename(__FILE__) != "login.php"){
+    header("location: ../login.php");
+    exit();
+  }
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,12 +36,15 @@
         <?php
           if (isset($_GET["error"])) {
             if ($_GET["error"] == "emptyInput") {
-              echo "<p> <font color=red>Isikan dengan lengkap semua form di atas!</font> </p>";
+              echo "<p> <font color=red>Username and Password must NOT empty!</font> </p>";
             }
             elseif ($_GET["error"] == "wrongLogin") {
               echo "<font color=red>Username or Password is incorrect
                       <br>Please try again
                     </font>";
+            }
+            elseif ($_GET["error"] == "notLoggedIn") {
+              echo "<p> <font color=red>Please login first!</font> </p>";
             }
           }
         ?>
