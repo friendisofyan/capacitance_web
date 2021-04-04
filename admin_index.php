@@ -28,7 +28,7 @@
             Control
           </a></div>
           
-          <div class="logout"><a href="#">
+          <div class="logout"><a href="includes/logout.inc.php">
             <img src="img/logout_icon.png" alt="logout">
             Logout
           </a></div>

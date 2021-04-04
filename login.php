@@ -1,3 +1,7 @@
+<?php
+  // header("location: includes/loggedin.inc.php");
+  // exit();
+?>
 <!doctype html>
 <html lang="en">
   <head>
