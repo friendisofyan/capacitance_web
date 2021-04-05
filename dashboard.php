@@ -10,25 +10,28 @@
 
 <body>
   <div id="main-wrapper">
-    <div class="sidebar">
+  <div class="sidebar">
       <header>
         <h2>Sistem Presensi</h2>
       </header>
       <nav>
-        <!-- <ul> -->
-          <a href="#">
-            <img src="/img/user_icon.png" alt="user" >
+          <div class="utility"><a href="#">
+            <img src="img/user_icon.png" alt="user" >
             Display Name
           </a>
           <a href="#">
-            <img src="/img/chart_icon.png" alt="chart">
+            <img src="img/chart_icon_flip.png" alt="chart">
             Data Showcase
           </a>
           <a href="#">
-            <img src="/img/gear_icon.png" alt="control">  
+            <img src="img/gear_icon_flip.png" alt="control">  
             Control
-          </a>
-        <!-- </ul> -->
+          </a></div>
+          
+          <div class="logout"><a href="includes/logout.inc.php">
+            <img src="img/logout_icon.png" alt="logout">
+            Logout
+          </a></div>
       </nav>
     </div>
 
