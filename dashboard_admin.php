@@ -21,29 +21,40 @@
       <header>
         <h2>Sistem Presensi</h2>
       </header>
-      <nav>
-          <div class="utility"><a href="#">
-            <img src="img/user_icon.png" alt="user" >
-            Display Name
-          </a>
-          <a href="#">
-            <img src="img/chart_icon_flip.png" alt="chart">
-            Data Showcase
-          </a>
-          <a href="#">
-            <img src="img/gear_icon_flip.png" alt="control">  
-            Control
-          </a></div>
-          
-          <div class="logout"><a href="includes/logout.inc.php">
-            <img src="img/logout_icon.png" alt="logout">
-            Logout
-          </a></div>
-      </nav>
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <nav>
+            <div class="utility">
+              <a href="#">
+                <img src="img/user_icon.png" alt="user" >
+                Display Name
+              </a>
+              <a href="#">
+                <img src="img/chart_icon_flip.png" alt="chart">
+                Data Showcase
+              </a>
+              <a href="#">
+                <img src="img/gear_icon_flip.png" alt="control">  
+                Control
+              </a>
+            </div>
+              
+            <div class="logout">
+              <a href="includes/logout.inc.php">
+                <img src="img/logout_icon.png" alt="logout">
+                Logout
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
     </div>
 
     <div class="content-wrapper">
       <center><h1>INI DASHBOARD ADMIN</h1></center>
+      <img src="img/test.jpg" alt="test doang">
+      <img src="img/test.jpg" alt="test doang">
       <img src="img/test.jpg" alt="test doang">
     </div>
 

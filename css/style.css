@@ -67,6 +67,9 @@
   overflow-y: auto;
 }
 
+.dropbtn{
+  display: none;
+}
 .sidebar{
   display: flex;
   flex-basis: 22%;
@@ -76,6 +79,14 @@
   background-attachment: fixed; 
   background-repeat: no-repeat;
   overflow: auto;
+}
+.dropdown{
+  height: 100%;
+}
+.dropdown-content{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .sidebar nav{
   display: flex;
