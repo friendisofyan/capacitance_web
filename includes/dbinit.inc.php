@@ -13,14 +13,14 @@ $conn = mysqli_connect($serverName, $dBUsername, $dBPassword);
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-echo "Connected successfully |";
+echo "Connected successfully <br>";
 
 // Create database
 $sql = "CREATE DATABASE IF NOT EXISTS $dBName";
 if (mysqli_query($conn, $sql)) {
-  echo "Database created successfully |";
+  echo "Database created successfully <br>";
 } else {
-  echo "Error creating database: " . mysqli_error($conn) . " |";
+  echo "Error creating database: " . mysqli_error($conn) . " <br>";
 }
 
 // Create connection to database
@@ -29,7 +29,7 @@ $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-echo "Connected successfully to db |";
+echo "Connected successfully to db <br>";
 
 // Create users table
 $sql = "CREATE TABLE IF NOT EXISTS $tableusers (
@@ -40,10 +40,10 @@ $sql = "CREATE TABLE IF NOT EXISTS $tableusers (
   usersPwd VARCHAR(128) NOT NULL
   )";
 if (mysqli_query($conn, $sql)) {
-  echo "Table users created successfully |";
+  echo "Table users created successfully <br>";
 } 
 else {
-  echo "Error creating table: " . mysqli_error($conn) . " |";
+  echo "Error creating table: " . mysqli_error($conn) . " <br>";
 }
 
 mysqli_close($conn);
