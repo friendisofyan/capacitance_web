@@ -38,28 +38,30 @@
   }
   .dropdown-content {
     display: none;
-    width: 100%;
-    position:absolute;
+    position:fixed;
+    left: 0;
+    top: 100;
     height: fit-content;
-    margin-left: 0px;
-    background-color:white;
-    min-width: 160px;
+    background-color:lightgray;
+    min-width:100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 3;
+    z-index: 1000;
   }
   .dropdown-content nav a{
     color: black;
   }
+  .dropdown-content nav a:hover{
+    background-color: white;
+  }
 
   .dropdown:hover .dropdown-content {
     display: block;
-    margin: auto;
   }
 
   .dropdown-content a:hover {background-color: #f1f1f1;}
 
   .dropdown-content img{
-    display: none;
+    height: 20px;
   }
 }
 
