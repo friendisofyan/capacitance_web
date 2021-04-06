@@ -39,7 +39,7 @@
   .dropdown-content {
     display: none;
     width: 100%;
-    position:fixed;
+    position:absolute;
     height: fit-content;
     margin-left: 0px;
     background-color:white;
@@ -53,6 +53,7 @@
 
   .dropdown:hover .dropdown-content {
     display: block;
+    margin: auto;
   }
 
   .dropdown-content a:hover {background-color: #f1f1f1;}
