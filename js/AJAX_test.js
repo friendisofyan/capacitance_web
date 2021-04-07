@@ -10,8 +10,7 @@ function loadDoc(url, cFunction) {
   xhttp.send();
 }
 function myFunction(xhttp) {
-  document.getElementById("demo").innerHTML =
-  xhttp.responseText;
+  document.getElementById("demo").innerHTML = xhttp.responseText;
 }
 
 function loadXML(url) {
