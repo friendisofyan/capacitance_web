@@ -9,24 +9,41 @@ function loadDoc(url, cFunction) {
   xhttp.open("GET", url, true);
   xhttp.send();
 }
+
 function myFunction(xhttp) {
   document.getElementById("demo").innerHTML = xhttp.responseText;
 }
 
-function loadXML(url) {
-  var xhttp, xmlDoc, txt, x, i;
+function loadXML(xml) {
+  var xmlDoc, txt, x, i;
+  xmlDoc = xml.responseXML;
+  txt = "";
+  x = xmlDoc.getElementsByTagName("ARTIST");
+  for (i = 0; i < x.length; i++) {
+    txt = txt + x[i].childNodes[0].nodeValue + "<br>";
+  }
+  document.getElementById("demo2").innerHTML = txt;
+}
+
+// ###############################################
+$(document).ready(function(){
+  $("#btnjQuery").click(function(){
+    $("#div1").load("cd_catalog.xml");
+  });
+});
+
+function showData(str){
+  var xhttp;
+  if (str == ""){
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
   xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      xmlDoc = this.responseXML;
-      txt = "";
-      x = xmlDoc.getElementsByTagName("ARTIST");
-      for (i = 0; i < x.length; i++) {
-        txt = txt + x[i].childNodes[0].nodeValue + "<br>";
-      }
-      document.getElementById("demo2").innerHTML = txt;
+  xhttp.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status =="200"){
+      document.getElementById("txtHint").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", url, true);
+  xhttp.open("GET", "getdata.php?q="+str, true);
   xhttp.send();
 }

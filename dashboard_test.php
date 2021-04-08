@@ -7,6 +7,21 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/responsive.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    form {
+      margin-left: 20px;
+    }
+    table,th,td {
+      margin-left: 20px;
+      border : 1px solid black;
+      border-collapse: collapse;
+      background-color: white;
+    }
+    th,td {
+      font-weight : bold;
+      padding: 5px;
+    }
+  </style>
 </head>
 
 <body>
@@ -59,6 +74,23 @@
 
       <button type="button" id="btnjQuery">tes ajax pake jQuery</button>
       <div id="div1"></div> 
+
+
+      <h2>TES AJAX KE SERVER DATABASE</h2>
+      <form action=""> 
+        <select name="data" onchange="showData(this.value)">
+          <option value="">Pilih nama COK:</option>
+          <option value="Yapin">Yapin</option>
+          <option value="MC">MC</option>
+          <option value="Friendi">Friend</option>
+          <option value="Arief">Arief</option>
+          <option value="Ivan">Ivan</option>
+          <option value="Jeve">Jeve</option>
+        </select>
+      </form>
+      <br>
+      <div id="txtHint">info hasil dari db disini cuy!!!</div>
+
     </div>
 
   </div>
