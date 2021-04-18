@@ -1,3 +1,6 @@
+<?php
+  include_once 'includes/loggedin.inc.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
