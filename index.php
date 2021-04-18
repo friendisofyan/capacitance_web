@@ -1,4 +1,5 @@
 <?php
+    include_once 'includes/loggedin.inc.php';
     include_once 'header.php';
 ?>
 
