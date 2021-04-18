@@ -1,9 +1,5 @@
 <?php
   include_once 'includes/loggedin.inc.php';
-  if (basename(__FILE__) != "login.php"){
-    header("location: ../login.php");
-    exit();
-  }
 ?>
 <!doctype html>
 <html lang="en">

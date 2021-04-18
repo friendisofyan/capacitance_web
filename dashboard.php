@@ -47,21 +47,6 @@
 
     <div class="content-wrapper">
       <center><h1>INI DASHBOARD USER</h1></center>
-      <div id="demo">
-        TEST xttp.responseText dari file ajax_info.txt
-        <button type="button" onclick="loadDoc('ajax_info.txt', myFunction)">Change Content</button>
-      </div>
-
-      <div id= "demo2">
-        TEST xttp.responseXML dari file cd_catalog.xml
-        <button type="button" onclick="loadDoc('cd_catalog.xml', loadXML)">Change Content</button>
-      </div>
-
-      <button type="button" id="btnjQuery">tes ajax pake jQuery</button>
-      <div id="div1"></div> 
-    </div>
-
-  </div>
-  <script src="js/AJAX_test.js"></script>
+      
 </body>
 </html>
