@@ -1,8 +1,8 @@
 <?php
 
-function emptyInputSignup($name, $jabatan, $username, $pwd, $repwd){
+function emptyInputSignup($name, $jabatan, $email, $username, $pwd, $repwd){
   $result;
-  if (empty($name) || empty($jabatan) || empty($username) || empty($pwd) || empty($repwd)) {
+  if (empty($name) || empty($jabatan) || empty($email) || empty($username) || empty($pwd) || empty($repwd)) {
     $result = true;
   }
   else {
@@ -33,15 +33,15 @@ function pwdMatch($pwd, $repwd){
   return $result;
 }
 
-function uidExist($conn, $username){
-  $sql = "SELECT * FROM  users WHERE usersUid = ?;";
+function uidExist($conn, $username, $email){
+  $sql = "SELECT * FROM  users WHERE usersUid = ? OR usersEmail = ?;";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
     header("location: ../signup.php?error=stmtFailed");
     exit();
   }
 
-  mysqli_stmt_bind_param($stmt, "s", $username);
+  mysqli_stmt_bind_param($stmt, "ss", $username, $email);
   mysqli_stmt_execute($stmt);
   $resultData = mysqli_stmt_get_result($stmt);
 
@@ -56,14 +56,14 @@ function uidExist($conn, $username){
   mysqli_stmt_close($stmt);
 }
 
-function createUser($conn, $name, $jabatan, $username, $pwd){
+function createUser($conn, $name, $jabatan, $email, $username, $pwd){
   // mencegah user register dengan jabatan Admin hingga memiliki akses ke admin
   if ($jabatan === "Admin") {
     header("location: ../signup.php?error=notValid");
     exit();
   }
 
-  $sql = "INSERT INTO users (usersName, usersJabatan, usersUid, usersPwd) VALUES (?, ?, ?, ?);";
+  $sql = "INSERT INTO users (usersName, usersJabatan, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?, ?);";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
     header("location: ../signup.php?error=stmtFailed");
@@ -72,7 +72,7 @@ function createUser($conn, $name, $jabatan, $username, $pwd){
 
   $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-  mysqli_stmt_bind_param($stmt, "ssss", $name, $jabatan, $username, $hashedPwd);
+  mysqli_stmt_bind_param($stmt, "sssss", $name, $jabatan, $email, $username, $hashedPwd);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
   header("location: ../signup.php?error=none");
@@ -92,7 +92,7 @@ function emptyInputLogin($username, $pwd){
 
 
 function loginUser($conn, $username, $pwd){
-  $uidExist = uidExist($conn, $username);
+  $uidExist = uidExist($conn, $username, $username);
 
   if ($uidExist == false) {
     header("location: ../login.php?error=wrongLogin");

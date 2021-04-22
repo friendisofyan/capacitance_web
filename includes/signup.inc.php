@@ -4,6 +4,7 @@ if (isset($_POST["submit"])) {
   
   $name = $_POST["name"];
   $jabatan = $_POST["jabatan"];
+  $email = $_POST["email"];
   $username = $_POST["username"];
   $pwd = $_POST["pwd"];
   $repwd = $_POST["repwd"];
@@ -11,7 +12,7 @@ if (isset($_POST["submit"])) {
   require_once 'dbconn.inc.php';
   require_once 'functions.inc.php';
 
-  if(emptyInputSignup($name, $jabatan, $username, $pwd, $repwd) !== false){
+  if(emptyInputSignup($name, $jabatan, $email, $username, $pwd, $repwd) !== false){
     header("location: ../signup.php?error=emptyInput");
     exit();
   }
@@ -23,12 +24,12 @@ if (isset($_POST["submit"])) {
     header("location: ../signup.php?error=passwordNotMatch");
     exit();
   }
-  if(uidExist($conn, $username) !== false){
+  if(uidExist($conn, $username, $email) !== false){
     header("location: ../signup.php?error=usernameTaken");
     exit();
   }
 
-  createUser($conn, $name, $jabatan, $username, $pwd);
+  createUser($conn, $name, $jabatan, $email, $username, $pwd);
   
 }
 else {
