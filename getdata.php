@@ -11,8 +11,7 @@ if(!$conn){
   die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT dataNama, dataLahir, dataHobi, dataPekerjaan
-FROM data WHERE dataNama = ?";
+$sql = "SELECT * FROM data WHERE dataNama = ?";
 
 $stmt = mysqli_stmt_init($conn);
 mysqli_stmt_prepare($stmt, $sql);

@@ -1,4 +1,5 @@
 <?php
+include('lib/phpqrcode/qrlib.php');
 
 if (isset($_POST["submit"])) {
   
@@ -28,6 +29,9 @@ if (isset($_POST["submit"])) {
     header("location: ../signup.php?error=usernameTaken");
     exit();
   }
+
+  $QRcontent = '{"username":"' .$username. '", "name":"' .$name. '"}';
+  QRcode::png($QRcontent, 'assets/qr/' .$username. '.png', QR_ECLEVEL_M, 7);
 
   createUser($conn, $name, $jabatan, $email, $username, $pwd);
   

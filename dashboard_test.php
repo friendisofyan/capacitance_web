@@ -24,6 +24,10 @@
       font-weight : bold;
       padding: 5px;
     }
+    .qrcode {
+      width : 200px;
+      margin-left: 20px;
+    }
   </style>
 </head>
 
@@ -64,7 +68,7 @@
     </div>
 
     <div class="content-wrapper">
-      <center><h1>INI DASHBOARD USER</h1></center>
+      <center><h1>INI DASHBOARD TES FITUR</h1></center>
       <div id="demo">
         TEST xttp.responseText dari file ajax_info.txt
         <button type="button" onclick="loadDoc('ajax_info.txt', myFunction)">Change Content</button>
@@ -89,9 +93,6 @@
       </form>
       <br>
       <div id="txtHint">info hasil dari db disini cuy!!!</div>
-
-      <h2>TES AJAX QR Code</h2>
-
     </div>
 
   </div>
