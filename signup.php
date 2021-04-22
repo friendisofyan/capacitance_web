@@ -30,7 +30,10 @@
             <option value="Manager">Manager</option>
             <option value="Asisten Manager">Asisten Manager</option>
             <option value="Karyawan">Karyawan</option>
-          </select> 
+          </select>
+          
+          <div class="grey"><label for="email">Email</label></div> 
+          <input type="text" id="email" name="email" class="form"> 
 
           <div class="grey"><label for="username">Username</label></div> 
           <input type="text" id="username" name="username" class="form">
@@ -46,19 +49,22 @@
         <?php
           if (isset($_GET["error"])) {
             if ($_GET["error"] == "emptyInput") {
-              echo "<p> <font color=red>Isikan dengan lengkap semua form di atas!</font> </p>";
+              echo "<p> <font color=red>Fill out all the forms!</font> </p>";
             }
             elseif ($_GET["error"] == "invalidUsername") {
-              echo "<p> <font color=red>Gunakan username yang cocok!</font></p>";
+              echo "<p> <font color=red>Username invalid!</font></p>";
             }
             elseif ($_GET["error"] == "passwordNotMatch") {
-              echo "<p> <font color=red>Pastikan password yang dimasukkan sama!</font></p>";
+              echo "<p> <font color=red>Password and re-type password don't match!</font></p>";
             }
             elseif ($_GET["error"] == "stmtFailed") {
               echo "<p> <font color=red>Oops something went wrong!</font></p>";
             }
             elseif ($_GET["error"] == "usernameTaken") {
               echo "<p> <font color=red>Username telah dipakai!</font></p>";
+            }
+            elseif ($_GET["error"] == "notValid") {
+              echo "<p> <font color=red>Data tidak valid!</font></p>";
             }
             elseif ($_GET["error"] == "none") {
               echo "Pendaftaran akun berhasil!";

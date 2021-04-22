@@ -36,6 +36,7 @@ $sql = "CREATE TABLE IF NOT EXISTS $tableusers (
   usersId INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   usersName VARCHAR(128) NOT NULL,
   usersJabatan VARCHAR(128) NOT NULL,
+  usersEmail VARCHAR(128) NOT NULL,
   usersUid VARCHAR(128) NOT NULL,
   usersPwd VARCHAR(128) NOT NULL
   )";
