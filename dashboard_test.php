@@ -1,3 +1,6 @@
+<?php
+  include('lib/phpqrcode/qrlib.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,16 +83,14 @@
       <form action=""> 
         <select name="data" onchange="showData(this.value)">
           <option value="">Pilih nama COK:</option>
-          <option value="Yapin">Yapin</option>
-          <option value="MC">MC</option>
-          <option value="Friendi">Friend</option>
-          <option value="Arief">Arief</option>
+          <option value="Friendi">Friendi</option>
           <option value="Ivan">Ivan</option>
-          <option value="Jeve">Jeve</option>
         </select>
       </form>
       <br>
       <div id="txtHint">info hasil dari db disini cuy!!!</div>
+
+      <h2>TES AJAX QR Code</h2>
 
     </div>
 
