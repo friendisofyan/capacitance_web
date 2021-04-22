@@ -74,7 +74,7 @@
   display: flex;
   flex-basis: 22%;
   flex-direction: column;
-  background-image: url("/img/bg_login.jpg");
+  background-image: url("/assets/img/bg_login.jpg");
   background-size: auto 100%;
   background-attachment: fixed; 
   background-repeat: no-repeat;

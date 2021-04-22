@@ -4,8 +4,8 @@
   <title>Dashboard User</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <style>
     form {
@@ -36,22 +36,22 @@
           <nav>
             <div class="utility">
               <a href="#">
-              <img src="img/user_icon.png" alt="user" >
+              <img src="assets/img/user_icon.png" alt="user" >
               Display Name
               </a>
               <a href="#">
-                <img src="img/chart_icon_flip.png" alt="chart">
+                <img src="assets/img/chart_icon_flip.png" alt="chart">
                 Data Showcase
               </a>
               <a href="#">
-                <img src="img/gear_icon_flip.png" alt="control">  
+                <img src="assets/img/gear_icon_flip.png" alt="control">  
                 Control
               </a>
             </div>
               
             <div class="logout">
               <a href="includes/logout.inc.php">
-                <img src="img/logout_icon.png" alt="logout">
+                <img src="assets/img/logout_icon.png" alt="logout">
                 Logout
               </a>
             </div>
