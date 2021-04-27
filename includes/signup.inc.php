@@ -1,5 +1,6 @@
 <?php
-include_once('lib/phpqrcode/qrlib.php');
+include_once('../lib/phpqrcode/qrlib.php');
+include_once('../mail.php');
 
 if (isset($_POST["submit"])) {
   
@@ -31,8 +32,9 @@ if (isset($_POST["submit"])) {
   }
 
   $QRcontent = '{ "username":"' .$username. '", "name":"' .$name. '" }';
-  QRcode::png($QRcontent, 'assets/qr/' .$username. '.png', QR_ECLEVEL_M, 10);
+  QRcode::png($QRcontent, '../assets/qr/' .$username. '.png', QR_ECLEVEL_M, 10);
 
+  sendEmail($name, $username, $email);
   createUser($conn, $name, $jabatan, $email, $username, $pwd);
   
 }
