@@ -66,6 +66,9 @@
             elseif ($_GET["error"] == "notValid") {
               echo "<p> <font color=red>Data tidak valid!</font></p>";
             }
+            elseif ($_GET["error"] == "mailerError") {
+              echo "<p> <font color=red>Oops gagal dalam mendaftar, silahkan coba lagi atau hubungi admin!</font></p>";
+            }
             elseif ($_GET["error"] == "none") {
               echo "Pendaftaran akun berhasil!";
               echo "<br>";

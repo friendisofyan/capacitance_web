@@ -53,12 +53,14 @@ function sendEmail($name, $username, $email){
     $mail->Subject = $subject;
     $mail->Body    = $body;
   
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    $mail->AltBody = 'Selamat anda berhasil mendaftar di Sistem Presensi Less-Contact';
 
     $mail->Send();
     echo 'Message has been sent';
   } 
   catch (Exception $e) {
       echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+      header("location: ../signup.php?error=mailerError");
+      exit();
   }
 }
