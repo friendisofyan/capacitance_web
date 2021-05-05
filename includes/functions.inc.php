@@ -62,7 +62,6 @@ function createUser($conn, $name, $jabatan, $email, $username, $pwd){
     header("location: ../signup.php?error=notValid");
     exit();
   }
-
   $sql = "INSERT INTO users (usersName, usersJabatan, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?, ?);";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -71,7 +70,6 @@ function createUser($conn, $name, $jabatan, $email, $username, $pwd){
   }
 
   $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-
   mysqli_stmt_bind_param($stmt, "sssss", $name, $jabatan, $email, $username, $hashedPwd);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
@@ -124,4 +122,42 @@ function loginUser($conn, $username, $pwd){
     header("location: loggedin.inc.php");
     exit();
   }
+}
+
+function createAdmin($username, $pwd){
+  $sql = "INSERT INTO admin (adminUid, adminPwd) VALUES (?, ?);";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("location: ../signup_admin.php?error=stmtFailed");
+    exit();
+  }
+  
+  $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+  mysqli_stmt_bind_param($stmt, "ss", $username, $hashedPwd);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  header("location: ../signup_admin.php?error=none");
+  exit();
+}
+
+function adminExist($conn, $username){
+  $sql = "SELECT * FROM  admin WHERE adminUid = ?;";
+  $stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("location: ../signup_admin.php?error=stmtFailed");
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt, "s", $username);
+  mysqli_stmt_execute($stmt);
+  $resultData = mysqli_stmt_get_result($stmt);
+
+  if ($row = mysqli_fetch_assoc($resultData)) {
+    return $row;
+  }
+  else {
+    $result = false;
+    return $result;
+  }
+  mysqli_stmt_close($stmt);
 }
