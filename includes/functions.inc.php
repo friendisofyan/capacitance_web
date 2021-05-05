@@ -118,11 +118,11 @@ function loginUser($conn, $username, $pwd){
 
     if ($isAdmin === true) {
       $_SESSION["useruid"] = $adminExist["adminUid"];
-      $_SESSION["userjabatan"] = "admin";
+      $_SESSION["userlevel"] = "admin";
     }
     else {
       $_SESSION["useruid"] = $uidExist["usersUid"];
-      $_SESSION["userjabatan"] = "reguler";
+      $_SESSION["userlevel"] = "reguler";
     }
     header("location: loggedin.inc.php");
     exit();
