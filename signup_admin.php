@@ -1,7 +1,7 @@
 <?php
   session_start();
   if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
-    if ($_SESSION["userjabatan"] !== "admin") {
+    if ($_SESSION["userlevel"] !== "admin") {
       header("location: dashboard.php");
       exit();
     }
