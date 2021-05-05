@@ -91,13 +91,21 @@ function emptyInputLogin($username, $pwd){
 
 function loginUser($conn, $username, $pwd){
   $uidExist = uidExist($conn, $username, $username);
+  $adminExist = adminExist($conn, $username);
 
-  if ($uidExist == false) {
-    header("location: ../login.php?error=wrongLogin");
+  if (($uidExist == false) && ($adminExist == false)) {
+    header("location: ../login.php?error=noCredentials");
     exit();
   }
+  elseif (($uidExist !== false) && ($adminExist == false)) {
+    $pwdHashed = $uidExist["usersPwd"];
+    $isAdmin = false;
+  }
+  elseif (($uidExist == false) && ($adminExist !== false)) {
+    $pwdHashed = $adminExist["adminPwd"];
+    $isAdmin = true;
+  }
 
-  $pwdHashed = $uidExist["usersPwd"];
   $checkPwd = password_verify($pwd, $pwdHashed);
   
   if ($checkPwd == false) {
@@ -105,17 +113,14 @@ function loginUser($conn, $username, $pwd){
     exit();
   }
   elseif ($checkPwd == true){
-    $findJabatan = $uidExist["usersJabatan"];
     session_start();
     $_SESSION["loggedin"] = true;
 
-    if ($findJabatan == "Admin") {
-      // $_SESSION["userid"] = $uidExist["usersId"];
-      $_SESSION["useruid"] = $uidExist["usersUid"];
+    if ($isAdmin === true) {
+      $_SESSION["useruid"] = $adminExist["adminUid"];
       $_SESSION["userjabatan"] = "admin";
     }
     else {
-      // $_SESSION["userid"] = $uidExist["usersId"];
       $_SESSION["useruid"] = $uidExist["usersUid"];
       $_SESSION["userjabatan"] = "reguler";
     }

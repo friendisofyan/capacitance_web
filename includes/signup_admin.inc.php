@@ -21,7 +21,7 @@ if (isset($_POST["submit"])) {
     header("location: ../signup_admin.php?error=passwordNotMatch");
     exit();
   }
-  if(adminExist($conn, $username) !== false){
+  if((adminExist($conn, $username) !== false) || (uidExist($conn, $username, $username) !==false)){
     header("location: ../signup_admin.php?error=usernameTaken");
     exit();
   }

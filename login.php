@@ -42,6 +42,9 @@
             elseif ($_GET["error"] == "notLoggedIn") {
               echo "<p> <font color=red>Please login first!</font> </p>";
             }
+            elseif ($_GET["error"] == "noCredentials") {
+              echo "<p> <font color=red>Please sign up first!</font> </p>";
+            }
           }
         ?>
         
