@@ -60,7 +60,7 @@ $sql = "CREATE TABLE IF NOT EXISTS $tablepegawai (
         nama VARCHAR(128) NOT NULL,
         jabatan VARCHAR(128) NOT NULL,
         email VARCHAR(128) NOT NULL,
-        gender ENUM('male', 'female'),
+        gender ENUM('L', 'P'),
         tglLahir VARCHAR(32),
         telp VARCHAR(16),
         alamat VARCHAR(128),
