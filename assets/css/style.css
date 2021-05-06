@@ -61,7 +61,7 @@
 .content-wrapper{
   background-color: cadetblue;
   display: flex;
-  flex-basis: 78%;
+  flex-basis: 80%;
   flex-direction: column;
   margin-top: 0px;
   overflow-y: auto;
@@ -72,7 +72,7 @@
 }
 .sidebar{
   display: flex;
-  flex-basis: 22%;
+  flex-basis: 20%;
   flex-direction: column;
   background-image: url("/assets/img/bg_login.jpg");
   background-size: auto 100%;

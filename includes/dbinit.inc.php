@@ -81,6 +81,7 @@ $sql = "CREATE TABLE IF NOT EXISTS $tablepresensi (
         prsnId INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         pgwId INT(10) UNSIGNED NOT NULL,
         prsnTgl DATE,
+        temperature VARCHAR(6),
         jamMasuk TIME,
         jamKeluar TIME,
         overtime  TIME,

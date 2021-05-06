@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
   if ($_SESSION["userlevel"] == "admin") {
-    header("location: ../dashboard_admin.php");
+    header("location: ../dashboard_admin/index.php");
     exit();
   }
   elseif ($_SESSION["userlevel"] == "reguler"){
