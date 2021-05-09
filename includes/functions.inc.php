@@ -88,6 +88,27 @@ function emptyInputLogin($username, $pwd){
   return $result;
 }
 
+function getPgwId($conn, $uid){
+	$sqlPgw = "SELECT * FROM  pegawai WHERE uid = ?;";
+	$stmt = mysqli_stmt_init($conn);
+  if (!mysqli_stmt_prepare($stmt, $sqlPgw)) {
+    header("location: errorHandling.php?error=stmtFailed");
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt, "s", $uid);
+  mysqli_stmt_execute($stmt);
+  $resultData = mysqli_stmt_get_result($stmt);
+
+  if ($row = mysqli_fetch_assoc($resultData)) {
+    return $row["pgwId"];
+  }
+  else {
+    $result = false;
+    return $result;
+  }
+  mysqli_stmt_close($stmt);
+}
 
 function loginUser($conn, $username, $pwd){
   $uidExist = uidExist($conn, $username, $username);
@@ -118,12 +139,11 @@ function loginUser($conn, $username, $pwd){
 
     if ($isAdmin === true) {
       $_SESSION["username"] = $adminExist["adminUid"];
-      $_SESSION["useruid"] = $adminExist["adminUid"];
       $_SESSION["userlevel"] = "admin";
     }
     else {
+      $_SESSION["pgwid"] = getPgwId($conn, $uidExist["usersUid"])
       $_SESSION["username"] = $uidExist["usersName"];
-      $_SESSION["useruid"] = $uidExist["usersUid"];
       $_SESSION["userlevel"] = "reguler";
     }
     header("location: loggedin.inc.php");
