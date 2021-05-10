@@ -23,7 +23,12 @@ while ($row=mysqli_fetch_array($query2)) {
   $subdata[] = $row[1]; //pgwId
   $subdata[] = $row[2]; //nama
   $subdata[] = $row[3]; //prsnTgl
-  $subdata[] = $row[4]; //temperature
+  if (strcmp($row[4],"37.50")>=0) {
+    $subdata[] = '<font style="color:red">'.$row[4].'</font>';
+  }
+  else {
+    $subdata[] = $row[4]; //temperature  
+  }
   $subdata[] = $row[5]; //jamMasuk
   $subdata[] = $row[6]; //jamKeluar
   $data[] = $subdata;

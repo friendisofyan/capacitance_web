@@ -17,9 +17,9 @@
         <div class="card-body">
             <div class="table-responsive">
               <div class="form-group row">
-                <label for="filterTanggal" class="col-1 col-form-label">Tanggal:</label>
+                <label for="filterTanggal" class="col-sm-1 col-form-label responsive">Tanggal:</label>
                 <div class="col-sm-3">
-                  <input class="form-control" type="date" value="2021-05-06" id="filterTanggal">
+                  <input class="form-control" type="date" value="2021-05-01" id="filterTanggal">
                 </div>
               </div>
               <table class="table table-bordered" id="tabelKehadiran" width="100%" cellspacing="0">
