@@ -1,7 +1,13 @@
 <?php
 include_once('dbconn.inc.php');
 
-$tgl = '2021-05-09';
+// $tgl = '2021-05-09';
+if (isset($_POST["tgl"])) {
+  $tgl = $_POST["tgl"];
+}
+else {
+  $tgl = "2021-05-01";
+}
 $sql1 = "SELECT d.pgwId, d.nama 
           FROM pegawai d 
           WHERE d.pgwId NOT IN (SELECT pgwId FROM presensi Where prsnTgl = '$tgl');";
@@ -32,5 +38,5 @@ while ($row=mysqli_fetch_array($query1)) {
   $subdata[] = NULL; //jamKeluar
   array_push($data, $subdata);
 }
-
-echo json_encode($data);
+$json_data = array("data" => $data);
+echo json_encode($json_data);

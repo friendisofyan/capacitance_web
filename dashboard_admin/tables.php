@@ -16,19 +16,25 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="tabelKehadiran" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Id</th>
-                      <th>Nama Karyawan</th>
-                      <th>Tanggal</th>
-                      <th>Temperatur</th>
-                      <th>Jam Masuk</th>
-                      <th>Jam Keluar</th>
-                    </tr>
-                  </thead>
-                    
-                </table>
+              <div class="form-group row">
+                <label for="filterTanggal" class="col-1 col-form-label">Tanggal:</label>
+                <div class="col-sm-3">
+                  <input class="form-control" type="date" value="2021-05-06" id="filterTanggal">
+                </div>
+              </div>
+              <table class="table table-bordered" id="tabelKehadiran" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Nama Karyawan</th>
+                    <th>Tanggal</th>
+                    <th>Temperatur</th>
+                    <th>Jam Masuk</th>
+                    <th>Jam Keluar</th>
+                  </tr>
+                </thead>
+                  
+              </table>
             </div>
         </div>
     </div>
