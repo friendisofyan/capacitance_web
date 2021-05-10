@@ -2,7 +2,7 @@
 
 if (isset($_POST["submit"])) {
   
-  $username =   $_POST["username"];
+  $username = strtolower($_POST["username"]);
   $pwd =   $_POST["pwd"];
 
   require_once 'dbconn.inc.php';
