@@ -32,13 +32,13 @@ var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
     datasets: [{
-      label: "Revenue",
+      label: "Kehadiran",
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: [4215, 5312, 6251, 7841, 9821, 14984],
+      data: [0, 100, 90, 95, 100],
     }],
   },
   options: {
@@ -63,17 +63,17 @@ var myBarChart = new Chart(ctx, {
         ticks: {
           maxTicksLimit: 6
         },
-        maxBarThickness: 25,
+        maxBarThickness: 20,
       }],
       yAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
+          max: 100,
           maxTicksLimit: 5,
           padding: 10,
-          // Include a dollar sign in the ticks
+          // Include a percent sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return number_format(value) + '%';
           }
         },
         gridLines: {
@@ -103,7 +103,7 @@ var myBarChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + ': ' + number_format(tooltipItem.yLabel) + '%' ;
         }
       }
     },
