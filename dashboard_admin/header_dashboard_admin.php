@@ -145,9 +145,12 @@
 
       <!-- Sidebar Message -->
       <div class="sidebar-card d-none d-lg-flex">
-        <p class="text-center mb-2">Anda login sebagai : <br> 
+        <p class="text-center mb-2">Hari ini :<br> 
         <strong> <?php
-          echo $_SESSION["username"];
+          $timezone = date_default_timezone_get();
+          date_default_timezone_set($timezone);
+          $date = date('m/d/Y', time());
+          echo "<h6>".$date."</h6>";
         ?></strong>
         </p>
       </div>
