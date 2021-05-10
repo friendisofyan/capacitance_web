@@ -16,7 +16,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="tabelKehadiran" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th>Id</th>
@@ -28,13 +28,6 @@
                     </tr>
                   </thead>
                     
-                  <tbody>
-                    <div id="tableKehadiran">
-                      <?php 
-                        include("includes/get_datatable.inc.php");
-                      ?>
-                    </div>
-                  </tbody>
                 </table>
             </div>
         </div>

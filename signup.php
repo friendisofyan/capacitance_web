@@ -20,10 +20,10 @@
       <div class="form-wrapper">
         <h3>Isikan Data Dirimu</h3>
         <form action="includes/signup.inc.php" method="post">
-          <div class="grey"><label for="name">Nama Lengkap</label></div> 
-          <input type="text" id="name" name="name" class="form">
+          <div class="grey"><label for="name"></label></div> 
+          <input type="text" id="name" name="name" class="form" placeholder="Nama Lengkap">
 
-          <div class="grey"><label for="jabatan">Jabatan</label></div>
+          <div class="grey"><label for="jabatan"></label></div>
           <select id="jabatan" name="jabatan" class="form">
             <option value="">Pilih jabatan...</option>
             <option value="Chief">Chief</option>
@@ -32,17 +32,17 @@
             <option value="Karyawan">Karyawan</option>
           </select>
           
-          <div class="grey"><label for="email">Email</label></div> 
-          <input type="text" id="email" name="email" class="form"> 
+          <div class="grey"><label for="email"></label></div> 
+          <input type="text" id="email" name="email" class="form" placeholder="email"> 
 
-          <div class="grey"><label for="username">Username</label></div> 
-          <input type="text" id="username" name="username" class="form">
+          <div class="grey"><label for="username"></label></div> 
+          <input type="text" id="username" name="username" class="form" placeholder="username">
 
-          <div class="grey"><label for="pwd">Password</label></div>
-          <input type="password" id="pwd" name="pwd" class="form">
+          <div class="grey"><label for="pwd"></label></div>
+          <input type="password" id="pwd" name="pwd" class="form" placeholder="password">
 
-          <div class="grey"><label for="repwd">Re-type Password</label></div>
-          <input type="password" id="repwd" name="repwd" class="form">
+          <div class="grey"><label for="repwd"></label></div>
+          <input type="password" id="repwd" name="repwd" class="form" placeholder="Re-type Password">
           <button type="submit" name="submit" class="btn btn-primary sbmt">Sign Up</button>
         </form>
         

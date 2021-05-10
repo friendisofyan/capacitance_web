@@ -142,7 +142,7 @@ function loginUser($conn, $username, $pwd){
       $_SESSION["userlevel"] = "admin";
     }
     else {
-      $_SESSION["pgwid"] = getPgwId($conn, $uidExist["usersUid"])
+      $_SESSION["pgwid"] = getPgwId($conn, $uidExist["usersUid"]);
       $_SESSION["username"] = $uidExist["usersName"];
       $_SESSION["userlevel"] = "reguler";
     }

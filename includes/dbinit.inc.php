@@ -38,13 +38,12 @@ echo "Connected successfully to db <br>";
 $sql = "CREATE TABLE IF NOT EXISTS $tableusers (
         usersId INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         usersName VARCHAR(128) NOT NULL,
-        usersJabatan VARCHAR(128) NOT NULL,
         usersEmail VARCHAR(128) NOT NULL,
         usersUid VARCHAR(128) NOT NULL,
         usersPwd VARCHAR(128) NOT NULL,
         INDEX (usersName),
-        INDEX (usersEmail),
-        INDEX (usersJabatan)
+        INDEX (usersUid),
+        INDEX (usersEmail)
         );";
 if (mysqli_query($conn, $sql)) {
   echo "Table users created successfully <br>";
@@ -58,6 +57,7 @@ else {
 $sql = "CREATE TABLE IF NOT EXISTS $tablepegawai (
         pgwId INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         nama VARCHAR(128) NOT NULL,
+        uid VARCHAR(128) NOT NULL,
         jabatan VARCHAR(128) NOT NULL,
         email VARCHAR(128) NOT NULL,
         gender ENUM('L', 'P'),
@@ -67,7 +67,7 @@ $sql = "CREATE TABLE IF NOT EXISTS $tablepegawai (
         statusPgw ENUM('aktif',  'keluar'),
         FOREIGN KEY (nama) REFERENCES users(usersName) ON DELETE RESTRICT ON UPDATE CASCADE,
         FOREIGN KEY (email) REFERENCES users(usersEmail) ON DELETE RESTRICT ON UPDATE CASCADE,
-        FOREIGN KEY (jabatan) REFERENCES users(usersJabatan) ON DELETE RESTRICT ON UPDATE CASCADE
+        FOREIGN KEY (uid) REFERENCES users(usersUid) ON DELETE RESTRICT ON UPDATE CASCADE
         );";
 if (mysqli_query($conn, $sql)) {
   echo "Table pegawai created successfully <br>";
@@ -80,12 +80,14 @@ else {
 $sql = "CREATE TABLE IF NOT EXISTS $tablepresensi (
         prsnId INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         pgwId INT(10) UNSIGNED NOT NULL,
+        nama VARCHAR(128) NOT NULL,
         prsnTgl DATE,
         temperature VARCHAR(6),
         jamMasuk TIME,
         jamKeluar TIME,
         overtime  TIME,
-        FOREIGN KEY (pgwID) REFERENCES pegawai(pgwID) ON DELETE RESTRICT ON UPDATE CASCADE
+        FOREIGN KEY (pgwID) REFERENCES pegawai(pgwID) ON DELETE RESTRICT ON UPDATE CASCADE,
+        FOREIGN KEY (nama) REFERENCES pegawai(nama) ON DELETE RESTRICT ON UPDATE CASCADE
         );";
 if (mysqli_query($conn, $sql)) {
   echo "Table presensi created successfully <br>";

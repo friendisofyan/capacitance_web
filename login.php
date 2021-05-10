@@ -20,10 +20,12 @@
         <h2>Akses Sistem Presensi</h2>
         <br><br>
         <form action="/includes/login.inc.php" method="post">
-          <div class="grey"><label for="username">Username</label></div> 
+          <!-- <div class="grey"><label for="username">Username</label></div>  -->
+          <br>
           <input type="text" id="username" name="username" class="form" placeholder="username/email">
           <br><br>
-          <div class="grey"><label for="pwd">Password</label></div>
+          <!-- <div class="grey"><label for="pwd">Password</label></div> -->
+          <br>
           <input type="password" id="pwd" name="pwd" class="form" placeholder="********">
           <br>
           <button type="submit" name="submit" class="btn btn-primary sbmt">Login</button>
