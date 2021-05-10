@@ -149,7 +149,7 @@
         <strong> <?php
           $timezone = date_default_timezone_get();
           date_default_timezone_set($timezone);
-          $date = date('m/d/Y', time());
+          $date = date('d/m/Y', time());
           echo "<h6>".$date."</h6>";
         ?></strong>
         </p>
