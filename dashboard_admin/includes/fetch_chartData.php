@@ -27,6 +27,7 @@ foreach ($result1 as $row) {
 }
 
 foreach ($result2 as $row){
+  $row = array_merge($row, array("counter"=>"0"));
   array_push($data, $row);
 }
 
