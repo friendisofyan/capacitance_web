@@ -1,12 +1,20 @@
 $(document).ready(function () {
-  showGraph();
+  var awal = $("#tglAwal").val();
+  var akhir = $("#tglAkhir").val();
+  showGraph(awal, akhir);
+
+  $('#tglAwal, #tglAkhir').change(function(){
+    window.barGraph.destroy();
+    showGraph($("#tglAwal").val(), $("#tglAkhir").val());
+  });
 });
 
 
-function showGraph()
+
+
+function showGraph(tglAwal, tglAkhir)
 {
-  
-  {$.post("includes/fetch_chartData.php", { "tglAwal":"2021-05-06", "tglAkhir":"2021-05-07" },
+  {$.post("includes/fetch_chartData.php", { "tglAwal":tglAwal, "tglAkhir":tglAkhir },
     function (data)
     {
         console.log(data);
@@ -33,7 +41,7 @@ function showGraph()
 
         var graphTarget = $("#barChartKehadiran");
 
-        var barGraph = new Chart(graphTarget, {
+        window.barGraph = new Chart(graphTarget, {
             type: 'bar',
             data: chartdata,
             options: {
@@ -49,7 +57,7 @@ function showGraph()
               scales: {
                 xAxes: [{
                   time: {
-                    unit: 'month'
+                    unit: 'day'
                   },
                   gridLines: {
                     display: false,
@@ -62,7 +70,7 @@ function showGraph()
                 yAxes: [{
                   ticks: {
                     min: 0,
-                    max: 5,
+                    // max: 30,
                     maxTicksLimit: 5,
                     padding: 10,
                   },

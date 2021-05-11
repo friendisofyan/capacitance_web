@@ -38,6 +38,25 @@
                     <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
                 </div>
                 <div class="card-body">
+                  <div class="form-group row">
+                    <label for="tglAwal" class="col-sm-1 col-lg-2 col-form-label responsive">Dari:</label>
+                    <div class="col-sm-6 col-lg-4">
+                      <input class="form-control" type="date" value="2021-05-01" id="tglAwal">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="tglAkhir" class="col-sm-1 col-lg-2 col-form-label responsive">Hingga:</label>
+                    <div class="col-sm-6 col-lg-4">
+                      <input class="form-control" type="date" value=
+                        <?php
+                          $timezone = date_default_timezone_get();
+                          date_default_timezone_set($timezone);
+                          $date = date('Y-m-d', time());
+                          echo '"'.$date.'"';
+                        ?> 
+                      id="tglAkhir">
+                    </div>
+                  </div>
                     <div class="chart-bar">
                         <canvas id="barChartKehadiran"></canvas>
                     </div>
