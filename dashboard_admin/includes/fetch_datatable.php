@@ -22,7 +22,6 @@ while ($row=mysqli_fetch_array($query2)) {
   $subdata = array();
   $subdata[] = $row[1]; //pgwId
   $subdata[] = $row[2]; //nama
-  $subdata[] = $row[3]; //prsnTgl
   if (strcmp($row[4],"37.50")>=0) {
     $subdata[] = '<font style="color:red">'.$row[4].'</font>';
   }
@@ -31,16 +30,25 @@ while ($row=mysqli_fetch_array($query2)) {
   }
   $subdata[] = $row[5]; //jamMasuk
   $subdata[] = $row[6]; //jamKeluar
+  if (!empty($row[5]) and !empty($row[6]) ){
+    $time1 = new DateTime($row[5]);
+    $time2 = new DateTime($row[6]);
+    $diff = date_diff($time1, $time2);
+    $subdata[] = $diff->format('%H:%I:%S'); //durasi
+  }
+  else {
+    $subdata[] = NULL;
+  }
   $data[] = $subdata;
 }
 while ($row=mysqli_fetch_array($query1)) {
   $subdata = array();
   $subdata[] = $row[0]; //pgwId
   $subdata[] = $row[1]; //nama
-  $subdata[] = $tgl; //prsnTgl
   $subdata[] = NULL; //temperature
   $subdata[] = NULL; //jamMasuk
   $subdata[] = NULL; //jamKeluar
+  $subdata[] = NULL; //durasi
   array_push($data, $subdata);
 }
 $json_data = array("data" => $data);

@@ -34,10 +34,10 @@
                   <tr>
                     <th>Id</th>
                     <th>Nama Karyawan</th>
-                    <th>Tanggal</th>
                     <th>Temperatur</th>
                     <th>Jam Masuk</th>
                     <th>Jam Keluar</th>
+                    <th>Durasi</th>
                   </tr>
                 </thead>
               </table>
