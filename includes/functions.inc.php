@@ -58,7 +58,8 @@ function uidExist($conn, $username, $email){
 
 function createUser($conn, $name, $jabatan, $email, $username, $pwd){
   $sqlUser = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?);";
-  $sqlPegawai = "INSERT INTO pegawai (nama, uid, jabatan, email) VALUES (?, ?, ?, ?);";
+  $sqlPegawai = "INSERT INTO pegawai (nama, uid, jabatan, email, statusPgw) VALUES (?, ?, ?, ?, ?);";
+  $statusPgw = "aktif";
   $stmt1 = mysqli_stmt_init($conn);
   $stmt2 = mysqli_stmt_init($conn);
   if ((!mysqli_stmt_prepare($stmt1, $sqlUser)) || (!mysqli_stmt_prepare($stmt2, $sqlPegawai))) {
@@ -68,7 +69,7 @@ function createUser($conn, $name, $jabatan, $email, $username, $pwd){
 
   $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
   mysqli_stmt_bind_param($stmt1, "ssss", $name, $email, $username, $hashedPwd);
-  mysqli_stmt_bind_param($stmt2, "ssss", $name, $username, $jabatan, $email);
+  mysqli_stmt_bind_param($stmt2, "ssss", $name, $username, $jabatan, $email, $statusPgw);
   mysqli_stmt_execute($stmt1);
   mysqli_stmt_execute($stmt2);
   mysqli_stmt_close($stmt1);
