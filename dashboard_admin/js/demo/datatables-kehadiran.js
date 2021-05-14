@@ -7,15 +7,14 @@ $(document).ready(function() {
     "ajax" : {
       "url" : "includes/fetch_datatable.php",
       "type": "POST",
-      "data": function ( d ) {
-        d.tgl = str;
+      "data": {
+        "tgl" : str
       }
     }
   });
 
-
   $('#filterTanggal').change(function(){
-    var tanggal = $("#filterTanggal").val();
+    var tanggal = $(this).val();
     // tabelKehadiran.destroy();
     $('#tabelKehadiran').dataTable({
       "destroy" : true,
@@ -23,8 +22,8 @@ $(document).ready(function() {
       "ajax" : {
         "url" : "includes/fetch_datatable.php",
         "type": "POST",
-        "data": function ( d ) {
-          d.tgl = tanggal;
+        "data": {
+          "tgl" : tanggal
         }
       }
     });

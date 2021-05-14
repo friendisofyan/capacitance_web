@@ -121,18 +121,29 @@
         </div>
       </li>
 
-      <!-- Nav Item - Charts -->
+      <!-- Nav Item - Kehadiran Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.php">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKehadiran"
+          aria-expanded="true" aria-controls="collapsePages">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Kehadiran</span>
+        </a>
+        <div id="collapseKehadiran" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Kehadiran per Hari:</h6>
+            <a class="collapse-item" href="tables.php">Tabel Data Kehadiran</a>
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Kehadiran keseluruhan:</h6>
+            <a class="collapse-item" href="charts.php">Grafik Kehadiran</a>
+          </div>
+        </div>
       </li>
 
-      <!-- Nav Item - Tables -->
+      <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="tables.php">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Data Tabel Kehadiran</span></a>
+        <a class="nav-link" href="karyawan.php">
+          <i class="fas fa-fw fa-address-book"></i>
+          <span>Data Karyawan</span></a>
       </li>
 
       <!-- Divider -->
