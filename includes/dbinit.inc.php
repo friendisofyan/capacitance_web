@@ -34,6 +34,15 @@ if (!$conn) {
 }
 echo "Connected successfully to db <br>";
 
+<?php
+
+include_once("dbconn.inc.php");
+
+$tableusers = "users";
+$tablepegawai = "pegawai";
+$tablepresensi = "presensi";
+$tableabsensi = "absensi";
+
 // Create users table
 $sql = "CREATE TABLE IF NOT EXISTS $tableusers (
         usersId INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -101,17 +110,41 @@ else {
 $sql = "CREATE TABLE IF NOT EXISTS $tableabsensi (
 	      absnId INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         pgwId INT(10) UNSIGNED NOT NULL,
-        tgl_mulai DATE,
-        tgl_selesai DATE,
+        nama VARCHAR(128) NOT NULL,
+        absnTgl DATE,
         absnStatus enum('cuti', 'ijin', 'sakit'),
         absnKet VARCHAR(128),
-        FOREIGN KEY (pgwID) REFERENCES pegawai(pgwID) ON DELETE RESTRICT ON UPDATE CASCADE
+        FOREIGN KEY (pgwID) REFERENCES pegawai(pgwID) ON DELETE RESTRICT ON UPDATE CASCADE,
+        FOREIGN KEY (nama) REFERENCES pegawai(nama) ON DELETE RESTRICT ON UPDATE CASCADE
         );";
 if (mysqli_query($conn, $sql)) {
   echo "Table absensi created successfully <br>";
 } 
 else {
   echo "Error creating table: " . mysqli_error($conn) . " <br>";
+}
+
+//create admin table
+$sql = "CREATE TABLE IF NOT EXISTS admin (
+        adminUid varchar(128) NOT NULL PRIMARY KEY,
+        adminPwd varchar(128) NOT NULL
+      );";
+if (mysqli_query($conn, $sql)) {
+  echo "Table admin created successfully <br>";
+} 
+else {
+  echo "Error creating table: " . mysqli_error($conn) . " <br>";
+}
+
+//create default admin account
+$adminUid = "admin";
+$adminPwd = password_hash("admin", PASSWORD_DEFAULT);
+$sql = "INSERT INTO admin (adminUid, adminPwd) VALUES ('$adminUid', '$adminPwd');";
+if (mysqli_query($conn, $sql)) {
+  echo "Default admin account created successfully <br>";
+} 
+else {
+  echo "Error creating admin account: " . mysqli_error($conn) . " <br>";
 }
 
 mysqli_close($conn);
