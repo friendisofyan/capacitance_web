@@ -19,12 +19,20 @@
 
             <!-- Area Chart -->
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Grafik Kehadiran</h6>
+                  
+                  <div class="select">
+                    <select class="form-select col-12" aria-label="select" id="areaChartSel">
+                      <option value="tahunan">Tahunan</option>
+                      <option value="bulanan">Bulanan</option>
+                      <option selected value="harian">Harian</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="card-body">
                     <div class="chart-area">
-                        <canvas id="myAreaChart"></canvas>
+                      <canvas id="areaChartKehadiran"></canvas>
                     </div>
                     <hr>
                     Styling for the area chart can be found in the
@@ -150,6 +158,7 @@
   <!-- <script src="js/demo/chart-area-demo.js"></script> -->
   <!-- <script src="js/demo/chart-pie-demo.js"></script> -->
   <script src="js/demo/chart-bar.js"></script>
+  <script src="js/demo/chart-area.js"></script>
   <!-- <script src="js/demo/datatables-demo.js"></script> -->
   
 
