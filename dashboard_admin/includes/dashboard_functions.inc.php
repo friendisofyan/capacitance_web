@@ -1,5 +1,6 @@
 <?php
-
+  $timezone = date_default_timezone_get();
+  date_default_timezone_set($timezone);
 function jumlahKaryawan($conn){
   $sql = "SELECT pgwId FROM pegawai WHERE 1";
   $result = mysqli_query($conn, $sql);
@@ -9,8 +10,6 @@ function jumlahKaryawan($conn){
 }
 
 function persenKehadiran ($conn, $userLevel, $pgwId){
-  $timezone = date_default_timezone_get();
-  date_default_timezone_set($timezone);
   $today = date('Y-m-d');
 
   //jika admin maka akan menampilkan persentase kehadiran harian
@@ -69,8 +68,6 @@ function getSelisihWeekdays(\DateTime $startDate, \DateTime $endDate){
 }
 
 function jumlahSakit ($conn, $userLevel, $pgwId){
-  $timezone = date_default_timezone_get();
-  date_default_timezone_set($timezone);
   $today = date('Y-m-d');
 
   //jika admin maka akan menampilkan persentase kehadiran harian
@@ -106,8 +103,6 @@ function jumlahSakit ($conn, $userLevel, $pgwId){
 }
 
 function jumlahAbsen ($conn, $userLevel, $pgwId){
-  $timezone = date_default_timezone_get();
-  date_default_timezone_set($timezone);
   $today = date('Y-m-d');
 
   //jika admin maka akan menampilkan persentase kehadiran harian
