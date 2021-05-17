@@ -9,8 +9,7 @@ function jumlahKaryawan($conn){
   return $jumlah;
 }
 
-function persenKehadiran ($conn, $userLevel, $pgwId){
-  $today = date('Y-m-d');
+function persenKehadiran ($conn, $userLevel, $pgwId, $today){
 
   //jika admin maka akan menampilkan persentase kehadiran harian
   if ($userLevel == "admin") {
@@ -26,7 +25,7 @@ function persenKehadiran ($conn, $userLevel, $pgwId){
 
     $persenKehadiran = round((($jumlahHadir/$jumlahKaryawan)*100),2);
     mysqli_free_result($result);
-    return "$persenKehadiran %";
+    return $persenKehadiran;
   }
 
   //jika user reguler maka menampilkan rekap kehadiran dalam 1 bulan
@@ -46,7 +45,7 @@ function persenKehadiran ($conn, $userLevel, $pgwId){
     $hariKerja = getSelisihWeekdays($awal, $today);
 
     $persenKehadiran = round((($jumlahHadir/$hariKerja)*100),2);
-    return "$persenKehadiran %";
+    return $persenKehadiran;
   }
   
 }
