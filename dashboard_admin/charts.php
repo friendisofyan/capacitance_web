@@ -6,11 +6,10 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Charts</h1>
-    <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme.
-        The charts below have been customized - for further customization options, please visit the <a
-            target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js
-            documentation</a>.</p>
+    <h1 class="h3 mb-2 text-gray-800">Grafik Kehadiran</h1>
+    <p class="mb-4">
+      Di halaman ini kamu bisa melihat grafik kehadiran dari semua karyawan.
+    </p>
 
     <!-- Content Row -->
     <div class="row">
@@ -20,7 +19,7 @@
             <!-- Area Chart -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Grafik Kehadiran</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Grafik Persen Kehadiran</h6>
                   
                   <div class="select">
                     <select class="form-select col-12" aria-label="select" id="areaChartSel">
@@ -35,15 +34,14 @@
                       <canvas id="areaChartKehadiran"></canvas>
                     </div>
                     <hr>
-                    Styling for the area chart can be found in the
-                    <code>/js/demo/chart-area-demo.js</code> file.
+                    Menampilkan persen kehadiran seluruh karyawan di setiap hari.
                 </div>
             </div>
 
             <!-- Bar Chart -->
             <div class="card shadow mb-4">
               <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Chart Kehadiran Karyawan</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Chart Jumlah Kehadiran Karyawan</h6>
               </div>
               <div class="card-body">
                 <div class="form-group row">
@@ -69,6 +67,7 @@
                     <canvas id="barChartKehadiran"></canvas>
                   </div>
                   <hr>
+                  Menampilkan jumlah kehadiran seluruh karyawan di rentang waktu tertentu.
               </div>
             </div>
 
@@ -156,7 +155,7 @@
 
   <!-- Page level custom scripts -->
   <!-- <script src="js/demo/chart-area-demo.js"></script> -->
-  <!-- <script src="js/demo/chart-pie-demo.js"></script> -->
+  <script src="js/demo/chart-pie-demo.js"></script>
   <script src="js/demo/chart-bar.js"></script>
   <script src="js/demo/chart-area.js"></script>
   <!-- <script src="js/demo/datatables-demo.js"></script> -->

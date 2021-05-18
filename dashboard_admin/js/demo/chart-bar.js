@@ -33,10 +33,8 @@ function showGraph(tglAwal, tglAkhir)
         labels: name,
         datasets: [{
           label: 'Jumlah kehadiran',
-          backgroundColor: '#49e2ff',
-          borderColor: '#46d5f1',
-          hoverBackgroundColor: '#CCCCCC',
-          hoverBorderColor: '#666666',
+          backgroundColor: '#074BE9',
+          hoverBackgroundColor: '#2183FF',
           maxBarThickness: 20,
           data: counter
         }],

@@ -54,50 +54,7 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-          Interface
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-          aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Components</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="buttons.html">Buttons</a>
-            <a class="collapse-item" href="cards.html">Cards</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-          data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-          Addons
+          Utilitas
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
@@ -139,11 +96,65 @@
         </div>
       </li>
 
-      <!-- Nav Item - Charts -->
+      <!-- Nav Item - Data Karyawan -->
       <li class="nav-item">
         <a class="nav-link" href="karyawan.php">
           <i class="fas fa-fw fa-address-book"></i>
           <span>Data Karyawan</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+          Pengaturan
+      </div>
+
+      <!-- Nav Item - Zona Karyawan Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Zona Karyawan</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+          data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Perubahan Data:</h6>
+            <a class="collapse-item" href="#">Perubahan Data Absensi</a>
+            <a class="collapse-item" href="#">Perubahan Data Karyawan</a>
+            <div class="collapse-divider"></div>
+            <h6 class="collapse-header">Perubahan Akun:</h6>
+            <a class="collapse-item" href="#">Ubah Password</a>
+            <a class="collapse-item" href="#">Penghapusan akun</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Nav Item - Zona Admin Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+          aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Zona Admin</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Zona Admin:</h6>
+            <?php
+              if ($_SESSION["username"] === "admin") {
+                echo '<a class="collapse-item" href="#">Registrasi Akun Admin</a>';
+                echo '<a class="collapse-item" href="#">Penghapusan Akun Admin</a>';
+              }
+              else {
+                echo '<a class="collapse-item btn btn-sm disabled" href="#">Registrasi Akun Admin</a>';
+                echo '<a class="collapse-item btn btn-sm disabled" href="#">Penghapusan Akun Admin</a>';
+              }
+            ?>
+            
+          </div>
+        </div>
       </li>
 
       <!-- Divider -->
@@ -236,17 +247,6 @@
                 <h6 class="dropdown-header">
                   Notifications
                 </h6>
-                <!-- <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a> -->
                 <a class="dropdown-item d-flex align-items-center disabled" href="#">
                   <div>
                     Belum ada notifikasi baru...
@@ -273,14 +273,6 @@
                 <a class="dropdown-item" href="#">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
