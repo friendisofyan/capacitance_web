@@ -126,6 +126,7 @@ else {
 
 //create admin table
 $sql = "CREATE TABLE IF NOT EXISTS admin (
+        adminName varchar(128) NOT NULL,
         adminUid varchar(128) NOT NULL PRIMARY KEY,
         adminPwd varchar(128) NOT NULL
       );";
@@ -137,9 +138,10 @@ else {
 }
 
 //create default admin account
+$adminName = "admin"
 $adminUid = "admin";
 $adminPwd = password_hash("admin", PASSWORD_DEFAULT);
-$sql = "INSERT INTO admin (adminUid, adminPwd) VALUES ('$adminUid', '$adminPwd');";
+$sql = "INSERT INTO admin (adminName, adminUid, adminPwd) VALUES ('$adminName', '$adminUid', '$adminPwd');";
 if (mysqli_query($conn, $sql)) {
   echo "Default admin account created successfully <br>";
 } 

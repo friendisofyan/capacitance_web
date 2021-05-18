@@ -144,7 +144,7 @@
             <h6 class="collapse-header">Zona Admin:</h6>
             <?php
               if ($_SESSION["username"] === "admin") {
-                echo '<a class="collapse-item" href="#">Registrasi Akun Admin</a>';
+                echo '<a class="collapse-item" href="signup_admin.php">Registrasi Akun Admin</a>';
                 echo '<a class="collapse-item" href="#">Penghapusan Akun Admin</a>';
               }
               else {

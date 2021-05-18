@@ -153,9 +153,9 @@ function loginUser($conn, $username, $pwd){
 }
 
 //bagian admin
-function emptyInputSignup_admin($username, $pwd, $repwd){
+function emptyInputSignup_admin($name, $username, $pwd, $repwd){
   $result;
-  if (empty($username) || empty($pwd) || empty($repwd)) {
+  if (empty($name) || empty($username) || empty($pwd) || empty($repwd)) {
     $result = true;
   }
   else {
@@ -185,8 +185,8 @@ function adminExist($conn, $username){
   mysqli_stmt_close($stmt);
 }
 
-function createAdmin($conn, $username, $pwd){
-  $sql = "INSERT INTO admin (adminUid, adminPwd) VALUES (?, ?);";
+function createAdmin($conn, $name, $username, $pwd){
+  $sql = "INSERT INTO admin (adminName, adminUid, adminPwd) VALUES (?, ?, ?);";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
     header("location: ../signup_admin.php?error=stmtFailed");
@@ -194,7 +194,7 @@ function createAdmin($conn, $username, $pwd){
   }
   
   $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
-  mysqli_stmt_bind_param($stmt, "ss", $username, $hashedPwd);
+  mysqli_stmt_bind_param($stmt, "sss", $name, $username, $hashedPwd);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
   header("location: ../signup_admin.php?error=none");

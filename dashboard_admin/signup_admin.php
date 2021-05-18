@@ -17,8 +17,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/bg_style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/bg_style.css">
   </head>
 
   <body>
@@ -29,7 +29,10 @@
       <div class="form-wrapper">
         <h3>Data Akun Admin</h3>
         <br>
-        <form action="includes/signup_admin.inc.php" method="post">
+        <form action="../includes/signup_admin.inc.php" method="post">
+
+          <div class="grey"><label for="name">Name</label></div> 
+          <input type="text" id="name" name="name" class="form">
           
           <div class="grey"><label for="username">Username</label></div> 
           <input type="text" id="username" name="username" class="form">
@@ -67,7 +70,7 @@
           }
         ?>
 
-        <a class="btn btn-link" href="dashboard_admin.php" role="button">Back to Admin Dashboard</a>
+        <a class="btn btn-link" href="../includes/loggedin.inc.php" role="button">Back to Admin Dashboard</a>
       </div>
 
 
