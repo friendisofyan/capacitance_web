@@ -1,10 +1,10 @@
-<?php
+<!-- <?php
     session_start();
     if (!isset($_SESSION["loggedin"])){
       header("location: ../login.php?error=notLoggedIn");
       exit();
     }
-?>
+?> -->
 
 <!DOCTYPE html>
 <head>
@@ -145,7 +145,7 @@
             <?php
               if ($_SESSION["username"] === "admin") {
                 echo '<a class="collapse-item" href="signup_admin.php">Registrasi Akun Admin</a>';
-                echo '<a class="collapse-item" href="#">Penghapusan Akun Admin</a>';
+                echo '<a class="collapse-item" href="delete_admin.php">Penghapusan Akun Admin</a>';
               }
               else {
                 echo '<a class="collapse-item btn btn-sm disabled" href="#">Registrasi Akun Admin</a>';

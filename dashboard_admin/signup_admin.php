@@ -1,13 +1,14 @@
 <?php
   session_start();
   if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
-    if ($_SESSION["userlevel"] !== "admin") {
-      header("location: dashboard.php");
+    if (($_SESSION["userlevel"] !== "admin") || ($_SESSION["username"] !== "admin")) {
+      header("location: ../includes/loggedin.inc.php");
       exit();
     }
   }
   else {
     header("location: login.php");
+    exit();
   }
 ?>
 <!doctype html>
