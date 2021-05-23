@@ -1,5 +1,49 @@
+<?php
+  session_start();
+  include_once("header_dashboard_admin.php");
+  if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
+    if (($_SESSION["userlevel"] !== "admin") || ($_SESSION["username"] !== "admin")) {
+      header("location: ../includes/loggedin.inc.php");
+      exit();
+    }
+  }
+  else {
+    header("location: login.php");
+    exit();
+  }
+?>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Penghapusan Akun Admin</h1>
+
+    <!-- DataTales admin -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Daftar Akun Admin</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="tabelAdmin" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Nama Admin</th>
+                    <th>Username</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
 </div>
 <!-- End of Main Content -->
+
+
 <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -54,12 +98,12 @@
   <script src="vendor/chart.js/Chart.min.js"></script>
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="vendor/jquery-tabledit/jquery.tabledit.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
-  <script src="js/demo/datatables-demo.js"></script>
-
+  <script src="js/demo/datatables-admin.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
+  
 </body>
 
 </html>

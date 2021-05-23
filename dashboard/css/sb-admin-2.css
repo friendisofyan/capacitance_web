@@ -11285,3 +11285,10 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+.indexCard:hover{
+  text-decoration: unset;
+  font-weight: bolder;
+  box-shadow: 0px 22px 22px -18px rgba(0,0,0,0.65);
+  /* box-shadow: 0px 10px 13px -7px #000000; */
+}

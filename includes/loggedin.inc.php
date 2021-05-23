@@ -7,7 +7,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
     exit();
   }
   elseif ($_SESSION["userlevel"] == "reguler"){
-    header("location: ../dashboard.php");
+    header("location: ../dashboard/index.php");
     exit();
   }
   else {

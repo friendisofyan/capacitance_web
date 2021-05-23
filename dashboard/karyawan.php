@@ -1,49 +1,34 @@
 <?php
   include_once("header_dashboard.php");
 ?>
-
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tabel Data Kehadiran</h1>
+  <!-- Page Heading -->
+  <h1 class="h3 mb-4 text-gray-800">Data Karyawan</h1>
 
-
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Tabel Data Kehadiran per Hari</h6>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-              <div class="form-group row">
-                <label for="filterTanggal" class="col-sm-1 col-form-label responsive">Tanggal:</label>
-                <div class="col-sm-3">
-                  <input class="form-control" type="date" value=
-                    <?php
-                      $timezone = date_default_timezone_get();
-                      date_default_timezone_set($timezone);
-                      $date = date('Y-m-d', time());
-                      echo '"'.$date.'"';
-                    ?> 
-                  id="filterTanggal">
-                </div>
-              </div>
-              <table class="table table-bordered" id="tabelKehadiran" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Id</th>
-                    <th>Nama Karyawan</th>
-                    <th>Temperatur</th>
-                    <th>Jam Masuk</th>
-                    <th>Jam Keluar</th>
-                    <th>Durasi</th>
-                  </tr>
-                </thead>
-              </table>
-            </div>
-        </div>
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Tabel Data Kehadiran per Hari</h6>
     </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="tabelKaryawan" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nama Karyawan</th>
+              <th>Jabatan</th>
+              <th>Email</th>
+              <th>No.Telp</th>
+              <th>Alamat</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
 
 </div>
 <!-- /.container-fluid -->
@@ -105,8 +90,11 @@
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-
-  <script src="js/demo/datatables-kehadiran.js"></script>
+  <!-- Page level custom scripts -->
+  <!-- <script src="js/demo/chart-area-demo.js"></script> -->
+  <!-- <script src="js/demo/chart-pie-demo.js"></script> -->
+  <!-- <script src="js/demo/chart-bar.js"></script> -->
+  <script src="js/demo/datatables-karyawan.js"></script>
   
 
 </body>

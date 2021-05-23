@@ -1,5 +1,5 @@
 <?php
-  include_once("header_dashboard_admin.php");
+  include_once("header_dashboard.php");
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">
