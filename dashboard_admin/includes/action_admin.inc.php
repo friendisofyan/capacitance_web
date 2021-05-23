@@ -23,10 +23,16 @@ if ($_POST['action'] == 'edit') {
 }
 
 if ($_POST['action'] == 'delete') {
-  $sql = "DELETE FROM admin
+  if ($_POST["adminUid"] !== "admin") {
+    $sql = "DELETE FROM admin
           WHERE adminUid = '".$_POST["adminUid"]."'
           ";
-  $stmt = mysqli_prepare($conn, $sql);
-  mysqli_stmt_execute($stmt);
-  echo json_encode($_POST);
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_execute($stmt);
+    echo json_encode($_POST);
+  }
+  else{
+    echo "Root Admin cannnot be deleted!";
+  }
+  
 }
