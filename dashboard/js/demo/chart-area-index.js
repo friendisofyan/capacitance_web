@@ -1,29 +1,28 @@
 $(document).ready(function () {
-  var selector = 'harian';
-  showGraphArea(selector);
+  showGraphArea(pgwId);
 });
 
 
 function showGraphArea(selector)
 {
   $.ajax({
-    url : "includes/fetch_chartArea.inc.php",
+    url : "includes/fetch_chart-area.inc.php",
     type : "post",
     data : {
-      "selector" : selector,
+      "pgwId" : pgwId,
     },
     success: function(data){
       console.log(data);
-      var hari = [];
-      var persen = [];
+      var x = [];
+      var y = [];
 
       for (var i in data) {
-          hari.push(data[i].hari);
-          persen.push(data[i].persen);
+          x.push(data[i].bulan);
+          y.push(data[i].persen);
       }
 
       var chartdata = {
-        labels: hari,
+        labels: x,
         datasets: [{
           label: "Kehadiran",
           lineTension: 0.3,
@@ -37,7 +36,7 @@ function showGraphArea(selector)
           pointHoverBorderColor: "rgba(78, 115, 223, 1)",
           pointHitRadius: 10,
           pointBorderWidth: 2,
-          data: persen,
+          data: y,
         }],
       };
 
