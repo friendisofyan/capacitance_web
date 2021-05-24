@@ -39,7 +39,7 @@
         </a>
 
         <!-- Card jumlah izin -->
-        <a class="col-xl-3 col-md-6 mb-4 indexCard" href="#">
+        <a class="col-xl-3 col-md-6 mb-4 indexCard" href="tables.php">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -66,7 +66,7 @@
         </a>
 
         <!-- Card Absen tanpa keterangan -->
-        <a class="col-xl-3 col-md-6 mb-4 indexCard" href="#">
+        <a class="col-xl-3 col-md-6 mb-4 indexCard" href="tables.php">
             <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -112,12 +112,12 @@
         <div class="card shadow mb-4">
           <!-- Card Header - Dropdown -->
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Kehadiran kamu bulan ini</h6>
           </div>
           <!-- Card Body -->
           <div class="card-body">
             <div class="chart-pie pt-4">
-              <canvas id="myPieChart"></canvas>
+              <canvas id="donutChartKehadiranIndex"></canvas>
             </div>
             <hr>
             Kehadiran kamu di bulan ini
