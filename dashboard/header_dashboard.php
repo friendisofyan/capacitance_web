@@ -4,6 +4,7 @@
       header("location: ../login.php?error=notLoggedIn");
       exit();
     }
+    $nama_perusahaan = "Nama Perusahaan";
 ?> -->
 
 <!DOCTYPE html>
@@ -106,18 +107,12 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>
+          <!-- Topbar Branding -->
+          <h1 class="h1 mb-0 text-gray-800">
+            <?php
+              echo $nama_perusahaan;
+            ?>
+          </h1>
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
