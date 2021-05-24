@@ -47,7 +47,11 @@
                 <div class="form-group row">
                   <label for="tglAwal" class="col-sm-1 col-lg-2 col-form-label responsive">Dari:</label>
                   <div class="col-sm-6 col-lg-4">
-                    <input class="form-control" type="date" value="2021-05-01" id="tglAwal">
+                    <?php
+                      $date = date('Y-m-01');
+                      echo '<input class="form-control" type="date" value="'.$date.'" id="tglAwal">';
+                    ?>
+                    
                   </div>
                 </div>
                 <div class="form-group row">
