@@ -59,9 +59,7 @@
                   <div class="col-sm-6 col-lg-4">
                     <input class="form-control" type="date" value=
                       <?php
-                        $timezone = date_default_timezone_get();
-                        date_default_timezone_set($timezone);
-                        $date = date('Y-m-d', time());
+                        $date = date('Y-m-d');
                         echo '"'.$date.'"';
                       ?> 
                     id="tglAkhir">

@@ -1,32 +1,53 @@
 // Call the dataTables jQuery plugin
 // "use strict";
 $(document).ready(function() {
-  var str = $("#filterTanggal").val();
-  var tabelKehadiran = $('#tabelKehadiran').dataTable({
+  var awalPrsn = $("#tglAwalPrsn").val();
+  var akhirPrsn = $("#tglAkhirPrsn").val();
+  $('#tabelKehadiran').dataTable({
     "serverside" : true,
     "ajax" : {
-      "url" : "includes/fetch_datatable.php",
+      "url" : "includes/fetch_datatable-prsn.php",
       "type": "POST",
       "data": {
-        "tgl" : str
+        "pgwId" : pgwId,
+        "tglAwal" : awalPrsn,
+        "tglAkhir" : akhirPrsn
       }
     }
   });
 
-  $('#filterTanggal').change(function(){
-    var tanggal = $(this).val();
-    // tabelKehadiran.destroy();
+  $('#tglAwalPrsn, #tglAkhirPrsn').change(function(){
+    var tglAwal = $('#tglAwalPrsn').val();
+    var tglAkhir = $('#tglAkhirPrsn').val();
     $('#tabelKehadiran').dataTable({
       "destroy" : true,
       "serverside" : true,
       "ajax" : {
-        "url" : "includes/fetch_datatable.php",
+        "url" : "includes/fetch_datatable-prsn.php",
         "type": "POST",
         "data": {
-          "tgl" : tanggal
+          "pgwId" : pgwId,
+          "tglAwal" : tglAwal,
+          "tglAkhir" : tglAkhir
         }
       }
     });
+  });
+
+
+  var awalAbsn = $("#tglAwalAbsn").val();
+  var akhirAbsn = $("#tglAkhirAbsn").val();
+  $('#tabelAbsen').dataTable({
+    "serverside" : true,
+    "ajax" : {
+      "url" : "includes/fetch_datatable-absn.php",
+      "type": "POST",
+      "data": {
+        "pgwId" : pgwId,
+        "tglAwal" : awalAbsn,
+        "tglAkhir" : akhirAbsn
+      }
+    }
   });
 
 });

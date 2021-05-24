@@ -24,6 +24,10 @@
   <!-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
   <link href="css/sb-admin-2.css" rel="stylesheet">
 
+  <script type="text/javascript">
+    var pgwId='<?php echo $_SESSION["pgwid"];?>';
+  </script>
+
 </head>
 
 <body id="page-top">
