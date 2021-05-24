@@ -50,4 +50,22 @@ $(document).ready(function() {
     }
   });
 
+  $('#tglAwalAbsn, #tglAkhirAbsn').change(function(){
+    var tglAwal = $('#tglAwalAbsn').val();
+    var tglAkhir = $('#tglAkhirAbsn').val();
+    $('#tabelKehadiran').dataTable({
+      "destroy" : true,
+      "serverside" : true,
+      "ajax" : {
+        "url" : "includes/fetch_datatable-prsn.php",
+        "type": "POST",
+        "data": {
+          "pgwId" : pgwId,
+          "tglAwal" : tglAwal,
+          "tglAkhir" : tglAkhir
+        }
+      }
+    });
+  });
+
 });
