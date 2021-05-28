@@ -197,7 +197,7 @@ function createAdmin($conn, $name, $username, $pwd){
   mysqli_stmt_bind_param($stmt, "sss", $name, $username, $hashedPwd);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
-  header("location: ../signup_admin.php?error=none");
+  header("location: ../dashboard_admin/signup_admin.php?error=none");
   exit();
 }
 

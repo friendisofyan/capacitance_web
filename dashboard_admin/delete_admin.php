@@ -1,6 +1,5 @@
 <?php
   session_start();
-  include_once("header_dashboard_admin.php");
   if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true){
     if (($_SESSION["userlevel"] !== "admin") || ($_SESSION["username"] !== "admin")) {
       header("location: ../includes/loggedin.inc.php");
@@ -11,6 +10,10 @@
     header("location: login.php");
     exit();
   }
+  // Report all errors except E_NOTICE karena session start 2 kali di header sekali lagi
+  error_reporting(E_ALL & ~E_NOTICE); 
+  
+  include_once("header_dashboard_admin.php");
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid">

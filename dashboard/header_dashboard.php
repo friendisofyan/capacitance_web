@@ -1,11 +1,14 @@
-<!-- <?php
+<?php
     session_start();
     if (!isset($_SESSION["loggedin"])){
       header("location: ../login.php?error=notLoggedIn");
       exit();
     }
+    elseif ($_SESSION["userlevel"] == "admin") {
+      header("location: ../dashboard_admin/404.php");
+    }
     $nama_perusahaan = "Nama Perusahaan";
-?> -->
+?>
 
 <!DOCTYPE html>
 <head>

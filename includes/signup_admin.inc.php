@@ -30,5 +30,5 @@ if (isset($_POST["submit"])) {
   createAdmin($conn, $name, $username, $pwd);
 }
 else {
-  header("location: ../signup_admin.php");
+  header("location: ../dashboard_admin/signup_admin.php");
 }
