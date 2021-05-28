@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Config{
   protected $data;
   protected $default;
@@ -24,35 +22,35 @@ class Config{
         $data = $this->default;
         break;
       }
-      
     }
-
     return $data;
   }
 
-}
+  public function update($new, $filepath){
+    $data = $this->data;
 
-function updateConfig($data, $filepath){
-  $content = ""; 
-        
-  //parse the ini file to get the sections
-  //parse the ini file using default parse_ini_file() PHP function
-  $parsed_ini =parseConfig($filepath);
-  
-  foreach($data as $section=>$values){
-    //append the section 
-    $content .= "[".$section."]n"; 
-    //append the values
-    foreach($values as $key=>$value){
-        $content .= $key."=".$value."n"; 
+    $data = array_merge($data, $new); //merge dengan new akan update $data jika punya key yang sama di $new
+
+    //dibawah ini untuk cetak format file ini ke dalam string $content
+    $content ='';
+    foreach($data as $section=>$values){
+      //append section 
+      $content .= "[".$section."]\n"; 
+      //append values
+      if(isset($values)){
+        foreach($values as $key=>$value){
+          $content .= $key."=".$value."\n"; 
+        }
+      }
+      $content .= "\n";
     }
+
+    //write ke file
+    if (!$handle = fopen($filepath, 'w')) { 
+      return false; 
+    }
+    fwrite($handle, $content);
+    fclose($handle);  
   }
 
-  //write it into file
-  if (!$handle = fopen($filepath, 'w')) { 
-    return false; 
-  }
-  $success = fwrite($handle, $content);
-  fclose($handle); 
-  return $success;
 }
