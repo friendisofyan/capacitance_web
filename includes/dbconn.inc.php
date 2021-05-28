@@ -1,6 +1,6 @@
 <?php
 
-$configFilepath = '../config.ini';
+$configFilepath = $_SERVER['DOCUMENT_ROOT'].'/config.ini';
 include_once('parse-config.inc.php');
 $config = new Config;
 $config->load($configFilepath);

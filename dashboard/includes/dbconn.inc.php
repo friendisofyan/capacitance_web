@@ -1,12 +1,3 @@
 <?php
 
-$serverName = "localhost";
-$dBUsername = "root";
-$dBPassword = "";
-$dBName = "capacitance";
-
-$conn = mysqli_connect($serverName,$dBUsername,$dBPassword,$dBName);
-
-if(!$conn){
-  die("Connection failed: " . mysqli_connect_error());
-}
+include_once($_SERVER['DOCUMENT_ROOT'].'/includes/dbconn.inc.php');

@@ -1,6 +1,6 @@
 <?php
 
-$configFilepath = 'config.ini';
+$configFilepath = $_SERVER['DOCUMENT_ROOT'].'/config.ini';
 
 include_once('includes/parse-config.inc.php');
 
@@ -8,6 +8,10 @@ $config = new Config;
 
 $config->load($configFilepath);
 
-echo $config->get('db.dbName');
-echo $config->get('db.dbPaddword');
-echo $config->get('db.serverName');
+$serverName = $config->get('db.serverName');
+$dBUsername = $config->get('db.username');
+$dBPassword = $config->get('db.password');
+$dBName = $config->get('db.dbName');
+
+echo "$serverName <br> $dBUsername <br> $dBPassword <br> $dBName";
+echo "<br><br>";
