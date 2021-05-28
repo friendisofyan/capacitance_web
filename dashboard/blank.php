@@ -13,5 +13,5 @@
 
 
 <?php
-  include_once("footer_dashboard_admin.php");
+  include_once("footer_dashboard.php");
 ?>
