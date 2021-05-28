@@ -1,6 +1,6 @@
 <?php
 include_once('../lib/phpqrcode/qrlib.php');
-include_once('../mail.php');
+include_once('mail.inc.php');
 
 if (isset($_POST["submit"])) {
   
