@@ -15,7 +15,7 @@ if (isset($_POST["pgwId"])) {
   foreach ($dataBulan as $bulan){
     $subdata = array();
     $subdata["bulan"] = $bulan;
-    $subdata["persen"] = persenKehadiranBulanan($conn, $pgwId, $bulan);
+    $subdata["persen"] = persenKehadiranBulanan($conn, $pgwId, $bulan, $hariKerja);
     $result[] =$subdata;
   }
   echo json_encode($result);
@@ -23,7 +23,7 @@ if (isset($_POST["pgwId"])) {
 
 
 
-function persenKehadiranBulanan ($conn, $pgwId, $bulan){
+function persenKehadiranBulanan ($conn, $pgwId, $bulan, $hariKerja){
   $start = new DateTime($bulan);
   $awal = $start->format("Y-m-01");
   
@@ -49,8 +49,8 @@ function persenKehadiranBulanan ($conn, $pgwId, $bulan){
   mysqli_free_result($result);
 
   //menghitung hari dari awal bulan hingga hari ini
-  $hariKerja = getSelisihWeekdays(new DateTime($awal), new DateTime($akhir));
+  $jumlahHari = getSelisihWeekdays(new DateTime($awal), new DateTime($akhir), $hariKerja);
 
-  $persenKehadiran = round((($jumlahHadir/$hariKerja)*100),2);
+  $persenKehadiran = round((($jumlahHadir/$jumlahHari)*100),2);
   return $persenKehadiran;
 }

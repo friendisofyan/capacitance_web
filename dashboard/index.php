@@ -1,7 +1,7 @@
 <?php
-  include_once("header_dashboard.php");
   include_once("includes/dbconn.inc.php");
   include_once("includes/dashboard_functions.inc.php");
+  include_once("header_dashboard.php");
 ?>
 
 <!-- Begin Page Content -->
@@ -26,7 +26,7 @@
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                               <?php
-                                echo persenKehadiran($conn ,$_SESSION["userlevel"], $_SESSION["pgwid"], date('Y-m-d')) . "%";
+                                echo persenKehadiran($conn ,$_SESSION["userlevel"], $_SESSION["pgwid"], date('Y-m-d'), $hariKerja) . "%";
                               ?>
                             </div>
                         </div>

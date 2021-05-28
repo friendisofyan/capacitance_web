@@ -28,7 +28,7 @@
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                               <?php
-                                echo persenKehadiran($conn ,$_SESSION["userlevel"], "1", date('Y-m-d')) . "%";
+                                echo persenKehadiran($conn ,$_SESSION["userlevel"], "1", date('Y-m-d'), $hariKerja) . "%";
                               ?>
                             </div>
                         </div>

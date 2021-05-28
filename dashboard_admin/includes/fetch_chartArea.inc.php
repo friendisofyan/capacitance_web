@@ -15,7 +15,7 @@ if ($selector == "harian") {
   $end = new DateTime($early);
   $end->add($interval);
 
-  $result = fetchDataPerhari($conn, $start, $end);
+  $result = fetchDataPerhari($conn, $start, $end, $hariKerja);
   echo json_encode($result);
 }
 elseif ($selector == "bulanan"){
@@ -23,7 +23,7 @@ elseif ($selector == "bulanan"){
 }
 
 
-function fetchDataPerhari($conn, $start, $end){
+function fetchDataPerhari($conn, $start, $end,$hariKerja){
   $data = array();
   $subarray = array();
   $oneday = new DateInterval("P1D");
@@ -33,9 +33,9 @@ function fetchDataPerhari($conn, $start, $end){
   // karena hari ke $end adalah tgl 1 di bulan depan
   foreach(new DatePeriod($start, $oneday, $end) as $day) {
     $day_num = $day->format("N"); /* 'N' number days 1 (mon) to 7 (sun) */
-    if($day_num < 6) { /* weekday */
+    if($day_num <= $hariKerja) { /* weekday */
       $subarray["hari"] = $day->format('D, d M');
-      $subarray["persen"] = persenKehadiran($conn, "admin", "1", $day->format('Y-m-d'));
+      $subarray["persen"] = persenKehadiran($conn, "admin", "1", $day->format('Y-m-d'), $hariKerja);
       $data[] = $subarray;
     } 
   }

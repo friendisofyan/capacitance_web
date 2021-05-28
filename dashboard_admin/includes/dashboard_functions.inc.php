@@ -1,6 +1,13 @@
 <?php
   $timezone = date_default_timezone_get();
   date_default_timezone_set($timezone);
+
+  $configFilepath = $_SERVER['DOCUMENT_ROOT'].'/config.ini';
+  include_once($_SERVER['DOCUMENT_ROOT'].'/includes/parse-config.inc.php');
+  $config = new Config;
+  $config->load($configFilepath);
+  $hariKerja = intval($config->get('hari_kerja.hari'));
+
 function jumlahKaryawan($conn){
   $sql = "SELECT pgwId FROM pegawai WHERE 1";
   $result = mysqli_query($conn, $sql);
@@ -9,8 +16,7 @@ function jumlahKaryawan($conn){
   return $jumlah;
 }
 
-function persenKehadiran ($conn, $userLevel, $pgwId, $today){
-
+function persenKehadiran ($conn, $userLevel, $pgwId, $today, $hariKerja){
   //jika admin maka akan menampilkan persentase kehadiran harian
   if ($userLevel == "admin") {
     $sql = "SELECT pgwId 
@@ -43,18 +49,18 @@ function persenKehadiran ($conn, $userLevel, $pgwId, $today){
     //menghitung hari dari awal bulan hingga hari ini
     $awal = new DateTime($awal);
     $today = new DateTime($today);
-    $hariKerja = getSelisihWeekdays($awal, $today);
+    $jumlahHari = getSelisihWeekdays($awal, $today, $hariKerja);
 
-    $persenKehadiran = round((($jumlahHadir/$hariKerja)*100),2);
+    $persenKehadiran = round((($jumlahHadir/$jumlahHari)*100),2);
     return $persenKehadiran;
   }
   
 }
 
 
-function getSelisihWeekdays(\DateTime $startDate, \DateTime $endDate){
-  $isWeekday = function (\DateTime $date) {
-    return $date->format('N') < 6;
+function getSelisihWeekdays(\DateTime $startDate, \DateTime $endDate, $hariKerja){
+  $isWeekday = function (\DateTime $date) use($hariKerja) {
+    return $date->format('N') <= $hariKerja;
   };
 
   $days = $isWeekday($endDate) ? 1 : 0;
