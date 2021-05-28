@@ -42,7 +42,8 @@ function persenKehadiranBulanan ($conn, $pgwId, $bulan){
 
   $sql = "SELECT pgwId 
           FROM presensi 
-          WHERE (prsnTgl BETWEEN '$awal' AND '$akhir') AND (pgwId = '$pgwId')";
+          WHERE (prsnTgl BETWEEN '$awal' AND '$akhir') AND (pgwId = '$pgwId')
+          GROUP BY prsnTgl";
   $result = mysqli_query($conn, $sql);
   $jumlahHadir = mysqli_num_rows($result);
   mysqli_free_result($result);

@@ -34,7 +34,8 @@ function persenKehadiran ($conn, $userLevel, $pgwId, $today){
     $awal = date('Y-m-01');
     $sql = "SELECT pgwId 
             FROM presensi 
-            WHERE (prsnTgl BETWEEN '$awal' AND '$today') AND (pgwId = '$pgwId')";
+            WHERE (prsnTgl BETWEEN '$awal' AND '$today') AND (pgwId = '$pgwId')
+            GROUP BY prsnTgl";
     $result = mysqli_query($conn, $sql);
     $jumlahHadir = mysqli_num_rows($result);
     mysqli_free_result($result);

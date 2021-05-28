@@ -34,7 +34,8 @@ function persenKehadiran ($conn, $userLevel, $pgwId, $today){
     $awal = date('Y-m-01');
     $sql = "SELECT pgwId 
             FROM presensi 
-            WHERE (prsnTgl BETWEEN '$awal' AND '$today') AND (pgwId = '$pgwId')";
+            WHERE (prsnTgl BETWEEN '$awal' AND '$today') AND (pgwId = '$pgwId')
+            GROUP BY prsnTgl";
     $result = mysqli_query($conn, $sql);
     $jumlahHadir = mysqli_num_rows($result);
     mysqli_free_result($result);
@@ -92,7 +93,8 @@ function jumlahSakit ($conn, $userLevel, $pgwId){
             FROM absensi 
             WHERE (absnTgl BETWEEN '$awal' AND '$today') 
             AND (pgwId = '$pgwId')
-            AND (absnStatus = 'sakit')";
+            AND (absnStatus = 'sakit')
+            GROUP BY absnTgl";
     $result = mysqli_query($conn, $sql);
     $jumlahSakit = mysqli_num_rows($result);
     mysqli_free_result($result);
@@ -127,7 +129,8 @@ function jumlahAbsen ($conn, $userLevel, $pgwId){
             FROM absensi 
             WHERE (absnTgl BETWEEN '$awal' AND '$today') 
             AND (pgwId = '$pgwId')
-            AND (absnStatus IS NULL)";
+            AND (absnStatus IS NULL)
+            GROUP BY absnTgl";
     $result = mysqli_query($conn, $sql);
     $jumlahAbsen = mysqli_num_rows($result);
     mysqli_free_result($result);
