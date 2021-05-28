@@ -9,12 +9,7 @@ require '../lib/PHPMailer/src/PHPMailer.php';
 require '../lib/PHPMailer/src/SMTP.php';
 require '../lib/PHPMailer/src/OAuth.php';
 
-function sendEmail($name, $username, $email){
-  $configFilepath = $_SERVER['DOCUMENT_ROOT'].'/config.ini';
-  include_once('parse-config.inc.php');
-  $config = new Config;
-  $config->load($configFilepath);
-
+function sendEmail($name, $username, $email, $config){
   $mail = new PHPMailer(true);
   $subject = 'Pendaftaran Presensi Less-Contact';
   $body = '
@@ -46,8 +41,8 @@ function sendEmail($name, $username, $email){
     //$mail->addAddress('ellen@example.com');               //Name is optional
 
     //Attachments
-    $mail->addAttachment('../assets/qr/'.$username.'.png', 'qrcode_'.$username.'.png');    //Optional name
-    $mail->AddEmbeddedImage('../assets/qr/'.$username.'.png', 'qrcode');
+    $mail->addAttachment($config->get('storage.filepathQR').$username.'.png', 'qrcode_'.$username.'.png');    //Optional name
+    $mail->AddEmbeddedImage($config->get('storage.filepathQR').$username.'.png', 'qrcode');
 
     //Content
     $mail->isHTML(true);  //Set email format to HTML
