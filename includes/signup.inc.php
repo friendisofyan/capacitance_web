@@ -1,12 +1,18 @@
 <?php
-include_once('../lib/phpqrcode/qrlib.php');
-include_once('../mail.php');
 
 if (isset($_POST["submit"])) {
+  include_once('../lib/phpqrcode/qrlib.php');
+  include_once('mail.inc.php');
+
+  $configFilepath = $_SERVER['DOCUMENT_ROOT'].'/config.ini';
+  include_once('parse-config.inc.php');
+  $config = new Config;
+  $config->load($configFilepath);
+
   
   $name = $_POST["name"];
   $jabatan = $_POST["jabatan"];
-  $email = $_POST["email"];
+  $email = strtolower($_POST["email"]);
   $username = strtolower($_POST["username"]);
   $pwd = $_POST["pwd"];
   $repwd = $_POST["repwd"];
@@ -32,10 +38,10 @@ if (isset($_POST["submit"])) {
   }
 
   $QRcontent = '{ "username":"' .$username. '", "name":"' .$name. '" }';
-  QRcode::png($QRcontent, '../assets/qr/' .$username. '.png', QR_ECLEVEL_M, 10);
+  QRcode::png($QRcontent, $config->get('storage.filepathQR') . $username . '.png', QR_ECLEVEL_M, 10);
 
-  sendEmail($name, $username, $email);
-  createUser($conn, $name, $jabatan, $email, $username, $pwd);
+  sendEmail($name, $username, $email, $config);
+  // createUser($conn, $name, $jabatan, $email, $username, $pwd);
   
 }
 else {
