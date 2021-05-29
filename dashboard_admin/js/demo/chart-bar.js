@@ -56,33 +56,33 @@ function showGraph(tglAwal, tglAkhir)
             }
           },
           scales: {
-            xAxes: [{
+            x: {
               time: {
                 unit: 'day'
               },
-              gridLines: {
+              grid: {
                 display: false,
                 drawBorder: false
               },
               ticks: {
                 maxTicksLimit: 6
               },
-            }],
-            yAxes: [{
+            },
+            y: {
               ticks: {
                 min: 0,
                 // max: 30,
                 maxTicksLimit: 5,
                 padding: 10,
               },
-              gridLines: {
+              grid: {
                 color: "rgb(234, 236, 244)",
                 zeroLineColor: "rgb(234, 236, 244)",
                 drawBorder: false,
                 borderDash: [2],
                 zeroLineBorderDash: [2]
               }
-            }],
+            },
           }
         }
       });
