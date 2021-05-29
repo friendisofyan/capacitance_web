@@ -111,7 +111,7 @@
           </button>
 
           <!-- Topbar Branding -->
-          <h1 class="h1 mb-0 text-gray-800">
+          <h1 class="h2 mb-0 text-gray-800">
             <?php
               echo $nama_perusahaan;
             ?>
@@ -180,7 +180,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="profile.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
