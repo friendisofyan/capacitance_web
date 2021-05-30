@@ -41,8 +41,7 @@ if (isset($_POST["submit"])) {
   QRcode::png($QRcontent, $config->get('storage.filepathQR') . $username . '.png', QR_ECLEVEL_M, 10);
 
   sendEmail($name, $username, $email, $config);
-  // createUser($conn, $name, $jabatan, $email, $username, $pwd);
-  
+  createUser($conn, $name, $jabatan, $email, $username, $pwd);
 }
 else {
   header("location: ../signup.php");

@@ -36,7 +36,13 @@ function showProfile($conn, $pgwId) {
   elseif ($row['gender'] == 'P') {
     $gender = 'Perempuan';
   }
-  $tglLahir = new DateTime($row['tglLahir']);
+  if (is_null($row['tglLahir'])) {
+    $tglLahir='';
+  }
+  else{
+    $tglLahir = new DateTime($row['tglLahir']);
+    $tglLahir = $tglLahir->format('d F Y');
+  }
 
   $html ="
     <tr>
@@ -45,7 +51,7 @@ function showProfile($conn, $pgwId) {
     </tr>
     <tr>
       <th>Tgl Lahir</th>
-      <td>".$tglLahir->format('d F Y')."</td>
+      <td>".$tglLahir."</td>
     </tr>
     <tr>
       <th>Jenis Kelamin</th>
