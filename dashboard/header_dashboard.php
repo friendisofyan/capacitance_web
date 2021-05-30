@@ -85,8 +85,7 @@
       <div class="sidebar-card d-none d-lg-flex">
         <p class="text-center mb-2">Hari ini :<br> 
         <strong> <?php
-          $timezone = date_default_timezone_get();
-          date_default_timezone_set($timezone);
+          date_default_timezone_set('Asia/Jakarta');
           $date = date('d/m/Y', time());
           echo "<h6>".$date."</h6>";
         ?></strong>
