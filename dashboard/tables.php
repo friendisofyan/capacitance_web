@@ -58,7 +58,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-            <div class="form-group row">
+              <div class="form-group row">
                 <label for="tglAwal" class="col-sm-1 col-lg-1 col-form-label responsive">Dari:</label>
                 <div class="col-sm-6 col-lg-3">
                   <?php
