@@ -1,13 +1,17 @@
 <?php
-    session_start();
-    if (!isset($_SESSION["loggedin"])){
-      header("location: ../login.php?error=notLoggedIn");
-      exit();
-    }
-    elseif ($_SESSION["userlevel"] == "admin") {
-      header("location: ../dashboard_admin/404.php");
-    }
-    $nama_perusahaan = "Nama Perusahaan";
+  session_start();
+  if (!isset($_SESSION["loggedin"])){
+    header("location: ../login.php?error=notLoggedIn");
+    exit();
+  }
+  elseif ($_SESSION["userlevel"] == "admin") {
+    header("location: ../dashboard_admin/404.php");
+  }
+  $configFilepath = $_SERVER['DOCUMENT_ROOT'].'/config.ini';
+  include_once($_SERVER['DOCUMENT_ROOT'].'/includes/parse-config.inc.php');
+  $config = new Config;
+  $config->load($configFilepath);
+  $nama_perusahaan = $config->get('perusahaan.nama');
 ?>
 
 <!DOCTYPE html>
