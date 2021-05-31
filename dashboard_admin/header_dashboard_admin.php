@@ -177,11 +177,11 @@
           </button>
 
           <!-- Topbar Branding -->
-          <h1 class="h1 mb-0 text-gray-800">
+          <div class="h4 mb-0 text-gray-800">
             <?php
               echo $nama_perusahaan;
             ?>
-          </h1>
+          </div>
           
 
           <!-- Topbar Navbar -->
