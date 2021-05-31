@@ -1,6 +1,6 @@
 <?php
-  $timezone = date_default_timezone_get();
-  date_default_timezone_set($timezone);
+  // $timezone = date_default_timezone_get();
+  date_default_timezone_set('Asia/Jakarta');
 
   $configFilepath = $_SERVER['DOCUMENT_ROOT'].'/config.ini';
   include_once($_SERVER['DOCUMENT_ROOT'].'/includes/parse-config.inc.php');

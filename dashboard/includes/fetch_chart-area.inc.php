@@ -3,18 +3,27 @@ header('Content-Type: application/json');
 include_once('dbconn.inc.php');
 include_once('dashboard_functions.inc.php');
 
-$timezone = date_default_timezone_get();
-date_default_timezone_set($timezone);
+// $timezone = date_default_timezone_get();
+// date_default_timezone_set($timezone);
+date_default_timezone_set("Asia/Jakarta");
 
 if (isset($_POST["pgwId"])) {
   $pgwId = $_POST["pgwId"];
 
-  $dataBulan = array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+  //ada bug di datetime php jika tidak diberi nilai tahun maka
+  //bulannya akan (Jan, Mar, Mar, May, May, Jul, Jul, dst)
+  //selanjutnya diberi nilai tahun agar bisa mengetahui tahun kabisat
+  $thnSkrg = date('Y');
+  $dataBulan = array("Jan $thnSkrg", "Feb $thnSkrg", "Mar $thnSkrg", 
+                    "Apr $thnSkrg", "May $thnSkrg", "Jun $thnSkrg", 
+                    "Jul $thnSkrg", "Aug $thnSkrg", "Sep $thnSkrg", 
+                    "Oct $thnSkrg", "Nov $thnSkrg", "Dec $thnSkrg");
   $result = array();
 
   foreach ($dataBulan as $bulan){
     $subdata = array();
-    $subdata["bulan"] = $bulan;
+    $temp = new DateTime($bulan);
+    $subdata["bulan"] = $temp->format('M');
     $subdata["persen"] = persenKehadiranBulanan($conn, $pgwId, $bulan, $hariKerja);
     $result[] =$subdata;
   }
