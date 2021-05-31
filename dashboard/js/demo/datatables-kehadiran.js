@@ -53,7 +53,7 @@ $(document).ready(function() {
   $('#tglAwalAbsn, #tglAkhirAbsn').change(function(){
     var tglAwal = $('#tglAwalAbsn').val();
     var tglAkhir = $('#tglAkhirAbsn').val();
-    $('#tabelKehadiran').dataTable({
+    $('#tabelAbsen').dataTable({
       "destroy" : true,
       "serverside" : true,
       "ajax" : {
