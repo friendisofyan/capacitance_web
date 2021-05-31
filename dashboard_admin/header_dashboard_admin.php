@@ -155,10 +155,10 @@
 
       <!-- Sidebar Message -->
       <div class="sidebar-card d-none d-lg-flex">
-        <p class="text-center mb-2">Hari ini :<br> 
+        <p class="text-center mb-2">Today :<br> 
         <strong> <?php
           date_default_timezone_set('Asia/Jakarta');
-          $date = date('d/m/Y', time());
+          $date = date('l, d M', time());
           echo "<h6>".$date."</h6>";
         ?></strong>
         </p>
