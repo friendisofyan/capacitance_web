@@ -18,7 +18,7 @@
     <div class="row">
 
         <!-- Card persentase kehadiran hari ini -->
-        <a class="col-xl-3 col-md-6 mb-4 indexCard" href="tables.php">
+        <a class="col-xl-3 col-md-6 mb-4 indexCard" href="tables_hadir.php">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -63,7 +63,7 @@
         </a>
 
         <!-- Card jumlah izin -->
-        <a class="col-xl-3 col-md-6 mb-4 indexCard" href="#">
+        <a class="col-xl-3 col-md-6 mb-4 indexCard" href="tables_absen.php">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -90,7 +90,7 @@
         </a>
 
         <!-- Card Absen tanpa keterangan -->
-        <a class="col-xl-3 col-md-6 mb-4 indexCard" href="#">
+        <a class="col-xl-3 col-md-6 mb-4 indexCard" href="tables_absen.php">
             <div class="card border-left-danger shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">

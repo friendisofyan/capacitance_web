@@ -75,7 +75,8 @@
         <div id="collapseKehadiran" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Kehadiran per Hari:</h6>
-            <a class="collapse-item" href="tables.php">Daftar Hadir</a>
+            <a class="collapse-item" href="tables_hadir.php">Daftar Hadir</a>
+            <a class="collapse-item" href="tables_absen.php">Detail Ketidakhadiran</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Kehadiran keseluruhan:</h6>
             <a class="collapse-item" href="charts.php">Grafik Kehadiran</a>
