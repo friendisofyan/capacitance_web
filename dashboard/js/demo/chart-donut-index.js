@@ -45,7 +45,7 @@ function showGraphDonut(pgwId)
             caretPadding: 10,
           },
           legend: {
-            display: false
+            display: true
           },
           cutoutPercentage: 80,
         }
