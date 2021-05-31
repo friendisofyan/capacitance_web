@@ -57,7 +57,7 @@ $(document).ready(function() {
       "destroy" : true,
       "serverside" : true,
       "ajax" : {
-        "url" : "includes/fetch_datatable-prsn.php",
+        "url" : "includes/fetch_datatable-absn.php",
         "type": "POST",
         "data": {
           "pgwId" : pgwId,
