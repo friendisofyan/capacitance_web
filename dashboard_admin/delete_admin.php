@@ -98,7 +98,6 @@
   <script src="js/sb-admin-2.js"></script>
 
   <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
   <script src="vendor/jquery-tabledit/jquery.tabledit.js"></script>

@@ -12,6 +12,9 @@
       <h6 class="m-0 font-weight-bold text-primary">Tabel Data Karyawan</h6>
     </div>
     <div class="card-body">
+      <div class="text-danger">
+        <sup>*</sup>Status karyawan menandakan karyawan tersebut masih "aktif" atau sudah "keluar".
+      </div>
       <div class="table-responsive">
         <table class="table table-bordered" id="tabelKaryawan" width="100%" cellspacing="0">
           <thead>
@@ -22,7 +25,7 @@
               <th>Email</th>
               <th>No.Telp</th>
               <th>Alamat</th>
-              <th>Status</th>
+              <th>Status<sup>*</sup></th>
             </tr>
           </thead>
         </table>
@@ -86,15 +89,13 @@
   <script src="js/sb-admin-2.js"></script>
 
   <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="vendor/jquery-tabledit/jquery.tabledit.js"></script>
 
   <!-- Page level custom scripts -->
-  <!-- <script src="js/demo/chart-area-demo.js"></script> -->
-  <!-- <script src="js/demo/chart-pie-demo.js"></script> -->
-  <!-- <script src="js/demo/chart-bar.js"></script> -->
   <script src="js/demo/datatables-karyawan.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
   
 
 </body>
