@@ -8,7 +8,7 @@ if (isset($_POST["tgl"])) {
 else {
   $tgl = "2021-05-01";
 }
-$sql1 = "SELECT d.pgwId, d.nama 
+$sql1 = "SELECT d.nama 
           FROM pegawai d 
           WHERE d.pgwId NOT IN (SELECT pgwId FROM presensi Where prsnTgl = '$tgl');";
 
@@ -20,7 +20,7 @@ $data = array();
 
 while ($row=mysqli_fetch_array($query2)) {
   $subdata = array();
-  $subdata[] = $row[1]; //pgwId
+  $subdata[] = $row[0]; //pgwId
   $subdata[] = $row[2]; //nama
   if (strcmp($row[4],"37.50")>=0) {
     $subdata[] = '<font style="color:red">'.$row[4].'</font>';
@@ -43,8 +43,8 @@ while ($row=mysqli_fetch_array($query2)) {
 }
 while ($row=mysqli_fetch_array($query1)) {
   $subdata = array();
-  $subdata[] = $row[0]; //pgwId
-  $subdata[] = $row[1]; //nama
+  $subdata[] = NULL; //prsnId
+  $subdata[] = $row[0]; //nama
   $subdata[] = NULL; //temperature
   $subdata[] = NULL; //jamMasuk
   $subdata[] = NULL; //jamKeluar

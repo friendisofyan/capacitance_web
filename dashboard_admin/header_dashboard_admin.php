@@ -110,7 +110,7 @@
           data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Perubahan Data:</h6>
-            <a class="collapse-item" href="#">Perubahan Data Absensi</a>
+            <a class="collapse-item" href="edit_absen.php">Perubahan Data Absensi</a>
             <div class="collapse-divider"></div>
             <h6 class="collapse-header">Perubahan Akun:</h6>
             <a class="collapse-item" href="#">Ubah Password</a>

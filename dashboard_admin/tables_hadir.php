@@ -32,7 +32,7 @@
               <table class="table table-bordered" id="tabelKehadiran" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>Id</th>
+                    <th>Id Presensi</th>
                     <th>Nama Karyawan</th>
                     <th>Temperatur</th>
                     <th>Jam Masuk</th>
