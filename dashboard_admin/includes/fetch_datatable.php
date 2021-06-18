@@ -5,22 +5,35 @@ include_once('dbconn.inc.php');
 if (isset($_POST["tgl"])) {
   $tgl = $_POST["tgl"];
 }
-else {
-  $tgl = "2021-05-01";
-}
+
 $sql1 = "SELECT d.nama 
           FROM pegawai d 
-          WHERE d.pgwId NOT IN (SELECT pgwId FROM presensi Where prsnTgl = '$tgl');";
+          WHERE d.pgwId NOT IN (SELECT pgwId FROM presensi Where prsnTgl = ?);";
 
-$sql2 = "SELECT * FROM presensi WHERE prsnTgl = '$tgl'";
-$query1 = mysqli_query($conn, $sql1);
-$query2 = mysqli_query($conn, $sql2);
+$sql2 = "SELECT prsnId, nama, prsnTgl, temperature, jamMasuk, jamKeluar 
+        FROM presensi WHERE prsnTgl = ? ";
+
+if (isset($_POST["search"]["value"])) {
+  $sql1 .= "
+    OR nama LIKE '%".$_POST['search']['value']."%'
+  ";
+
+  $sql2 .= "
+    OR prsnId LIKE '%".$_POST['search']['value']."%'
+    OR nama LIKE '%".$_POST['search']['value']."%'
+    OR prsnTgl LIKE '%".$_POST['search']['value']."%'
+    OR temperature LIKE '%".$_POST['search']['value']."%'
+    OR jamMasuk LIKE '%".$_POST['search']['value']."%'
+    OR jamKeluar LIKE '%".$_POST['search']['value']."%'
+  ";
+}
+
 
 $data = array();
 
 while ($row=mysqli_fetch_array($query2)) {
   $subdata = array();
-  $subdata[] = $row[0]; //pgwId
+  $subdata[] = $row[0]; //prsnId
   $subdata[] = $row[2]; //nama
   if (strcmp($row[4],"37.50")>=0) {
     $subdata[] = '<font style="color:red">'.$row[4].'</font>';

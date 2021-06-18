@@ -4,6 +4,9 @@ $(document).ready(function() {
   //bagian presensi
   // var str = $("#filterTanggal").val();
   var tableHadir = $('#tabelKehadiran').dataTable({
+    "processing" : true,
+    "serverSide" : true,
+    "order" : [],
     "ajax" : {
       "url" : "includes/fetch_datatable.php",
       "type": "POST",
