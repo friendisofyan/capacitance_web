@@ -30,15 +30,7 @@ while ($row=mysqli_fetch_array($query2)) {
   }
   $subdata[] = $row[5]; //jamMasuk
   $subdata[] = $row[6]; //jamKeluar
-  if (!empty($row[5]) and !empty($row[6]) ){
-    $time1 = new DateTime($row[5]);
-    $time2 = new DateTime($row[6]);
-    $diff = date_diff($time1, $time2);
-    $subdata[] = $diff->format('%H:%I:%S'); //durasi
-  }
-  else {
-    $subdata[] = NULL;
-  }
+  $subdata[] = $row[7]; //durasi
   $data[] = $subdata;
 }
 while ($row=mysqli_fetch_array($query1)) {

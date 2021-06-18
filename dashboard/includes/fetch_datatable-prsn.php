@@ -35,15 +35,7 @@ if (isset($_POST["tglAwal"]) && isset($_POST["tglAkhir"]) && isset($_POST["pgwId
     }
     $subdata[] = $row["jamMasuk"]; //jamMasuk
     $subdata[] = $row["jamKeluar"]; //jamKeluar
-    if (!empty($row["jamMasuk"]) and !empty($row["jamKeluar"]) ){
-      $time1 = new DateTime($row["jamMasuk"]);
-      $time2 = new DateTime($row["jamKeluar"]);
-      $diff = date_diff($time1, $time2);
-      $subdata[] = $diff->format('%H:%I:%S'); //durasi
-    }
-    else {
-      $subdata[] = NULL;
-    }
+    $subdata[] = $row["durasi"]; //durasi
     $data[] = $subdata;
   }
 
