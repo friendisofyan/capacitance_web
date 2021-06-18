@@ -38,6 +38,7 @@
                     <th>Jam Masuk</th>
                     <th>Jam Keluar</th>
                     <th>Durasi</th>
+                    <th>Identifier</th>
                   </tr>
                 </thead>
               </table>
@@ -103,6 +104,7 @@
   <!-- Page level plugins -->
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="vendor/jquery-tabledit/jquery.tabledit.js"></script>
 
 
   <script src="js/demo/datatables-kehadiran.js"></script>

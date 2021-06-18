@@ -4,9 +4,8 @@ $(document).ready(function() {
   //bagian presensi
   // var str = $("#filterTanggal").val();
   var tableHadir = $('#tabelKehadiran').dataTable({
-    "processing" : true,
-    "serverSide" : true,
-    "order" : [],
+    serverSide : true,
+    processing : true,
     "ajax" : {
       "url" : "includes/fetch_datatable.php",
       "type": "POST",
@@ -28,7 +27,7 @@ $(document).ready(function() {
   });
 
   $('#filterTanggal').change(function(){
-    tableHadir.dataTable().api().ajax.reload();
+    tableHadir.DataTable().ajax.reload();
   });
 
   //bagian absen
@@ -52,7 +51,29 @@ $(document).ready(function() {
   });
 
   $('#tglAwalAbsn, #tglAkhirAbsn').change(function(){
-    tableAbsen.dataTable().api().ajax.reload();
+    tableAbsen.DataTable().ajax.reload();
   });
+
+  $('#tabelKehadiran').on('draw.dt', function(){
+    $('#tabelKehadiran').Tabledit({
+      url : 'includes/action_presensi.inc.php',
+      dataType : 'json',
+      hideIdentifier : true,
+      columns:{
+        identifier : [6, 'identifier'],
+        editable : [
+          [1, 'nama']
+        ]
+      },
+      restoreButton : false,
+      editButton : false,
+      onSuccess : function(data, textStatus, jqXHR){
+        if(data.action == 'delete'){
+          $('#' + data.id).remove;
+          $('#tabelKehadiran').DataTable().ajax.reload();
+        }
+      }
+    });
+  })
 
 });

@@ -19,7 +19,7 @@ $(document).ready(function() {
         identifier : [0, 'pgwId'],
         editable : [
                     [2, 'jabatan'],
-                    [6, 'statusPgw']
+                    [6, 'statusPgw', '{"aktif":"aktif","keluar":"keluar"}']
                   ]
       },
       restoreButton : false,
