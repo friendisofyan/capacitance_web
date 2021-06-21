@@ -134,3 +134,10 @@
 <?php
   include_once("footer_dashboard.php");
 ?>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/chart-area-index.js"></script>
+<script src="js/demo/chart-donut-index.js"></script>
+
+</body>
+</html>
