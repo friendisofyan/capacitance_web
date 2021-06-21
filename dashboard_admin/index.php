@@ -1,7 +1,5 @@
 <?php
   include_once("header_dashboard_admin.php");
-  include_once("includes/dbconn.inc.php");
-  include_once("includes/dashboard_functions.inc.php");
 ?>
 
 <!-- Begin Page Content -->

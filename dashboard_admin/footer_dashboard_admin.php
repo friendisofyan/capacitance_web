@@ -33,7 +33,28 @@
         </div>
         <div class="modal-body">Tekan tombol "Logout" untuk mengakhiri sesi.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
+          <a class="btn btn-primary" href="../includes/logout.inc.php">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Config Modal-->
+  <div class="modal fade" id="configModal" tabindex="-1" role="dialog" aria-labelledby="configModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="configModalLabel">Pengaturan Absensi</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Jumlah hari kerja : 6 hari
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
           <a class="btn btn-primary" href="../includes/logout.inc.php">Logout</a>
         </div>
       </div>

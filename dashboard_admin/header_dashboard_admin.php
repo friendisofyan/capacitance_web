@@ -1,4 +1,6 @@
 <?php
+  include_once("includes/dbconn.inc.php");
+  include_once("includes/dashboard_functions.inc.php");
   session_start();
   if (!isset($_SESSION["loggedin"])){
     header("location: ../login.php?error=notLoggedIn");
@@ -7,6 +9,8 @@
   elseif ($_SESSION["userlevel"] == "reguler") {
     header("location: ../dashboard/404.php");
   }
+
+  //config
   $configFilepath = $_SERVER['DOCUMENT_ROOT'].'/config.ini';
   include_once($_SERVER['DOCUMENT_ROOT'].'/includes/parse-config.inc.php');
   $config = new Config;
