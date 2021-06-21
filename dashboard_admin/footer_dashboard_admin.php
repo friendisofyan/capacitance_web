@@ -52,15 +52,7 @@
 
   <!-- Page level plugins -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- <script src="vendor/datatables/jquery.dataTables.min.js"></script> -->
-  <!-- <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script> -->
-
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-index.js"></script>
-  <!-- <script src="js/demo/chart-bar.js"></script> -->
-  <!-- <script src="js/demo/datatables-demo.js"></script> -->
-  
-
-</body>
-
-</html>
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
+  <script src="vendor/jquery-tabledit/jquery.tabledit.js"></script>

@@ -15,3 +15,9 @@
 <?php
   include_once("footer_dashboard_admin.php");
 ?>
+
+<!-- Page level custom scripts -->
+<!-- <script src="js/demo/datatables-admin.js"></script> -->
+  
+</body>
+</html>

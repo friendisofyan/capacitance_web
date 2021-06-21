@@ -140,3 +140,9 @@
 <?php
   include_once("footer_dashboard_admin.php");
 ?>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/chart-area-index.js"></script>
+  
+</body>
+</html>
