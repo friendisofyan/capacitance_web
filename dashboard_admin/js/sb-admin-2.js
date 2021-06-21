@@ -54,25 +54,3 @@
   });
 
 })(jQuery); // End of use strict
-
-// function showData(str){
-//   var xhttp;
-//   if (str == ""){
-//     document.getElementById("tableKehadiran").innerHTML = "";
-//     return;
-//   }
-//   xhttp = new XMLHttpRequest();
-//   xhttp.onreadystatechange = function(){
-//     if (this.readyState == 4 && this.status =="200"){
-//       document.getElementById("tableKehadiran").innerHTML = this.responseText;
-//     }
-//   };
-//   xhttp.open("GET", "includes/get_datatable.inc.php?q="+str, true);
-//   xhttp.send();
-// }
-
-var table = $('#tableKehadiran');
-var refresher = setInterval(table.load.bind(table, "includes/get_datatable.php"), 1000);
-setInterval(function() {
-  clearInterval(refresher);
-}, 1800000);

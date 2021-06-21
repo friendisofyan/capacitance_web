@@ -18,7 +18,7 @@ if ($_POST['action'] == 'delete') {
     echo json_encode($_POST);
   }
   else{
-    echo "alert('Pegawai tidak ada data kehadiran pada tanggal tersebut')";
+    echo "Pegawai tidak ada data kehadiran pada tanggal tersebut";
   }
   
 }

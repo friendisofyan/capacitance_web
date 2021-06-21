@@ -1,4 +1,5 @@
 <?php
+  include_once("includes/kehadiran.inc.php");
   include_once("header_dashboard_admin.php");
 ?>
 
@@ -28,6 +29,11 @@
                     ?> 
                   id="filterTanggal">
                 </div>
+                <div class="col-md-8 pt-2 text-right">
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahHadirModal">
+                    <i class="fa fa-plus-circle"></i> Tambah
+                  </button>
+                </div>
               </div>
               <table class="table table-bordered" id="tabelKehadiran" width="100%" cellspacing="0">
                 <thead>
@@ -48,6 +54,58 @@
 
 </div>
 <!-- /.container-fluid -->
+
+<!-- Edit Profile Modal -->
+<div class="modal fade" id="tambahHadirModal" tabindex="-1" role="dialog" aria-labelledby="tambahHadirLabel" aria-hidden="true">
+  <div class="modal-dialog" role="update">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tambahHadirLabel">Tambah Kehadiran</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="includes/kehadiran.inc.php" method="post" id="formTambahHadir"></form>
+          <!-- pilih karyawan -->
+          <div class="form-group">
+            <label for="pgw">Karyawan</label>
+            <input type="text" id="pgw" name="pgw" form="formTambahHadir" list="karyawan" class="form-control" required placeholder="Pilih Karyawan...">
+            <datalist id="karyawan">
+              <?php 
+                showPegawai($conn); 
+              ?>
+            </datalist>
+          </div>
+
+          <!-- tanggal presensi -->
+          <div class="form-group">
+            <label for="tgl">Tanggal Presensi</label>
+            <input type="date" id="tgl" name="tgl" form="formTambahHadir" class="form-control" required>
+          </div>
+
+          <!-- jam masuk -->
+          <div class="form-group">
+            <label for="masuk">Jam Masuk</label>
+            <input type="time" id="masuk" name="masuk" form="formTambahHadir" class="form-control" required>
+          </div>
+
+          <!-- jam keluar -->
+          <div class="form-group">
+            <label for="keluar">Jam Masuk</label>
+            <input type="time" id="keluar" name="keluar" form="formTambahHadir" class="form-control" required>
+          </div>
+          
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
+        <button class="btn btn-success" type="submit" name="submit" form="formTambahHadir">Tambah</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 <!-- End of Main Content -->
