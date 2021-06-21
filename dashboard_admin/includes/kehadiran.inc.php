@@ -2,7 +2,7 @@
 include_once('dbconn.inc.php');
 
 if (isset($_POST["submit"])) {
-  $id_ser = $_POST["pgw"]
+  $id_ser = $_POST["pgw"];
     //memisahkan id dan nama dari garis penghubung dengan spasi diantara " - "
     $id_array = preg_split("/ - /",$id_ser);
     $pgwId = $id_array[0];
