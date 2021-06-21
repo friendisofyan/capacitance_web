@@ -10,7 +10,7 @@
     header("location: login.php");
     exit();
   }
-  // Report all errors except E_NOTICE karena session start 2 kali di header sekali lagi
+  // Report all errors except E_NOTICE karena memanggil session_start 2 kali di header sekali lagi
   error_reporting(E_ALL & ~E_NOTICE); 
   
   include_once("header_dashboard_admin.php");
