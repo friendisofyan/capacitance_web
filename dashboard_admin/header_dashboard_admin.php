@@ -106,7 +106,7 @@
       <!-- Nav Item - Pengaturan Kehadiran -->
       <li class="nav-item">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#configModal">
-          <i class="fas fa-fw fa-address-book"></i>
+          <i class="fas fa-fw fa-calendar-week"></i>
           <span>Pengaturan Kehadiran</span></a>
       </li>
 

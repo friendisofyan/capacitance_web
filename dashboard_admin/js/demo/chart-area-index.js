@@ -18,7 +18,7 @@ function showGraphArea(selector)
       var persen = [];
 
       for (var i in data) {
-          hari.push(data[i].hari);
+          hari.push(data[i].date);
           persen.push(data[i].persen);
       }
 
