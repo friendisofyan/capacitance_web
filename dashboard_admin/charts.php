@@ -23,7 +23,6 @@
                   
                   <div class="select">
                     <select class="form-select col-12" aria-label="select" id="areaChartSel">
-                      <option value="tahunan">Tahunan</option>
                       <option value="bulanan">Bulanan</option>
                       <option selected value="harian">Harian</option>
                     </select>
@@ -80,16 +79,23 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Kehadiran tiap karyawan bulan ini</h6>
+                    <div class="select">
+                    <input type="text" id="donutChartSel" list="karyawan" class="form-control" placeholder="Id - Nama">
+                    <datalist id="karyawan">
+                      <?php 
+                        showPegawai($conn); 
+                      ?>
+                    </datalist>
+                  </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="chart-pie pt-4">
-                        <canvas id="myPieChart"></canvas>
+                        <canvas id="donutChartKehadiran"></canvas>
                     </div>
                     <hr>
-                    Styling for the donut chart can be found in the
-                    <code>/js/demo/chart-pie-demo.js</code> file.
+                    Menampilkan ilustrasi data kehadiran tiap karyawan dalam 1 bulan.
                 </div>
             </div>
         </div>
@@ -103,7 +109,7 @@
 ?>
 
 <!-- Page level custom scripts -->
-<script src="js/demo/chart-pie-demo.js"></script>
+<script src="js/demo/chart-donut.js"></script>
 <script src="js/demo/chart-bar.js"></script>
 <script src="js/demo/chart-area.js"></script>
   
