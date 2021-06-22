@@ -37,8 +37,9 @@ function persenKehadiranBulanan ($conn, $pgwId, $bulan, $hariKerja){
   $awal = $start->format("Y-m-01");
   
   $now = new DateTime();
+  $bulanNow = $now->format("M Y");
   //untuk bulan hari-h maka hanya akan dihitung persentasi hingga hari-h
-  if ($bulan == $now->format("M")) {
+  if ($bulan == $bulanNow) {
     $akhir = $now->format("Y-m-d");
   }
   //untuk bulan lainnya maka akan dihitung hingga akhir bulan
