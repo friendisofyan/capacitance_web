@@ -13,7 +13,7 @@ $(document).ready(function () {
 function showGraph(tglAwal, tglAkhir)
 {
   $.ajax({
-    url : "includes/fetch_chartBar.php",
+    url : "includes/fetch_chartBar.inc.php",
     type : "post",
     data : {
       "tglAwal" : tglAwal,

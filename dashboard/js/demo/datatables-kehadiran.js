@@ -4,7 +4,7 @@ $(document).ready(function() {
   
   var tableHadir = $('#tabelKehadiran').dataTable({
     "ajax" : {
-      "url" : "includes/fetch_datatable-prsn.php",
+      "url" : "includes/fetch_datatable-prsn.inc.php",
       "type": "POST",
       "data": function(d) {
         return $.extend( {}, d, {
@@ -31,7 +31,7 @@ $(document).ready(function() {
 
   var tableAbsen = $('#tabelAbsen').dataTable({
     "ajax" : {
-      "url" : "includes/fetch_datatable-absn.php",
+      "url" : "includes/fetch_datatable-absn.inc.php",
       "type": "POST",
       "data": function(d) {
         return $.extend( {}, d, {

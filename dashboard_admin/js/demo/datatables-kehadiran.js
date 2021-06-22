@@ -7,7 +7,7 @@ $(document).ready(function() {
     serverSide : true,
     processing : true,
     "ajax" : {
-      "url" : "includes/fetch_datatable.php",
+      "url" : "includes/fetch_datatable.inc.php",
       "type": "POST",
       "data": function(d) {
         return $.extend( {}, d, {
