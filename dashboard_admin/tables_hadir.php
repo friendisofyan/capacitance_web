@@ -70,8 +70,8 @@
         <form action="includes/kehadiran.inc.php" method="post" id="formTambahHadir"></form>
           <!-- pilih karyawan -->
           <div class="form-group">
-            <label for="pgw">Karyawan</label>
-            <input type="text" id="pgw" name="pgw" form="formTambahHadir" list="karyawan" class="form-control" required placeholder="Pilih Karyawan...">
+            <label for="pgw">Pilih Karyawan</label>
+            <input type="text" id="pgw" name="pgw" form="formTambahHadir" list="karyawan" class="form-control" required placeholder="Id - Nama">
             <datalist id="karyawan">
               <?php 
                 showPegawai($conn); 
