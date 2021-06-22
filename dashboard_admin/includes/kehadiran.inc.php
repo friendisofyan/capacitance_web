@@ -1,5 +1,6 @@
 <?php
 include_once('dbconn.inc.php');
+include_once('dashboard_functions.inc.php');
 
 if (isset($_POST["submit"])) {
   $id_ser = $_POST["pgw"];
@@ -27,30 +28,6 @@ if (isset($_POST["submit"])) {
   }
 }
 
-function getPegawai ($conn){
-  $sql = "SELECT pgwId, nama FROM pegawai
-          WHERE 1";
-  $stmt = mysqli_prepare($conn, $sql);
-  mysqli_stmt_execute($stmt);
-
-  $result = mysqli_stmt_get_result($stmt);
-  $pegawais = array();
-  // dengan format : pgwId - Nama
-  while ($row = mysqli_fetch_array($result)) {
-    $pegawais[] = $row[0].' - '.$row[1];
-  }
-  mysqli_free_result($result);
-  mysqli_stmt_close($stmt);
-  return $pegawais;
-}
-
-function showPegawai ($conn){
-  $pegawais = getPegawai($conn);
-  //print option satu persatu 
-  foreach($pegawais as $pegawai){
-    echo '<option value="'.$pegawai.'">';
-  }
-}
 
 function presensi ($conn, $pgwId, $nama, $tgl, $temperature, $jamMasuk, $jamKeluar, $durasi) {
   //pertama hapus terlebih dahulu apabila pegawai tersebut ada absen pada tgl tersebut
