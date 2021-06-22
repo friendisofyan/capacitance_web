@@ -144,3 +144,21 @@ function jumlahAbsen ($conn, $userLevel, $pgwId){
     return $jumlahAbsen;
   }
 }
+
+if (isset($_POST["gantiHariKerja"])) {
+  $new = $_POST["newHariKerja"];
+  updateHarikerja($new, $config, $configFilepath);
+  header('Location: ../index.php');
+  // header("location:javascript://history.go(-1)");
+  exit();
+}
+
+function updateHarikerja ($new, $config, $configFilepath){
+  $format = array(
+    "hari_kerja" => array(
+      "hari" => $new
+    )
+  );
+
+  $config->update($format, $configFilepath);
+}

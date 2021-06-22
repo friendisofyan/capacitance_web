@@ -45,17 +45,44 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="configModalLabel">Pengaturan Absensi</h5>
+          <h5 class="modal-title text-dark font-weight-bold" id="configModalLabel">Pengaturan Absensi</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
         <div class="modal-body">
-          Jumlah hari kerja : 6 hari
+          <form action="includes/dashboard_functions.inc.php" method="post" id="formHariKerja"></form>
+          <div class="form-group">
+            <label for="newHariKerja" class="text-dark font-weight-bold">Jumlah hari kerja</label>
+            <select class="form-control" id="newHariKerja" name="newHariKerja" form="formHariKerja">
+            <?php
+              if ($hariKerja == "5") {
+                echo "
+                  <option value='5' selected>Senin - Jumat (5 Hari)</option>
+                  <option value='6'>Senin - Sabtu (6 Hari)</option>
+                ";
+              }
+              elseif ($hariKerja == "6") {
+                echo "
+                  <option value='5'>Senin - Jumat (5 Hari)</option>
+                  <option value='6' selected>Senin - Sabtu (6 Hari)</option>
+                ";
+              }
+              else {
+                echo "
+                  <option value=''>pilih hari kerja...</option>
+                  <option value='5'>Senin - Jumat (5 Hari)</option>
+                  <option value='6'>Senin - Sabtu (6 Hari)</option>
+                ";
+              }
+            ?>
+            </select>
+            <small id="newHelp" class="form-text text-dark">Pengaturan hari kerja untuk menyesuaikan jumlah hari kerja per minggu-nya.</small>
+          </div>
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
-          <a class="btn btn-primary" href="../includes/logout.inc.php">Logout</a>
+          <button class="btn btn-primary" type="submit" name="gantiHariKerja" form="formHariKerja">Ubah</button>
         </div>
       </div>
     </div>
