@@ -55,7 +55,7 @@
 </div>
 <!-- /.container-fluid -->
 
-<!-- Edit Profile Modal -->
+<!-- Tambah Hadir Modal -->
 <div class="modal fade" id="tambahHadirModal" tabindex="-1" role="dialog" aria-labelledby="tambahHadirLabel" aria-hidden="true">
   <div class="modal-dialog" role="update">
     <div class="modal-content">
@@ -101,7 +101,7 @@
 
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Batalkan</button>
-        <button class="btn btn-success" type="submit" name="submit" form="formTambahHadir">Tambah</button>
+        <button class="btn btn-success" type="submit" name="hadir" form="formTambahHadir">Tambah</button>
       </div>
     </div>
   </div>
