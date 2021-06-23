@@ -6,14 +6,19 @@
 
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-gray-800">Data Karyawan</h1>
-
+  <div class="text-justify font-weight-bold col-xl-8">
+    Menonaktifkan status karyawan tidak akan menghapus data karyawan tersebut,
+    untuk menghapusnya silahkan ke halaman 
+    <a href="delete_karyawan.php">penghapusan akun</a>
+    namun diperlukan status "keluar" untuk menghapus data karyawan.
+  </div>
   <div class="card shadow mb-4">
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Tabel Data Karyawan</h6>
     </div>
     <div class="card-body">
-      <div class="text-danger">
-        <sup>*</sup>Status karyawan menandakan karyawan tersebut masih "aktif" atau sudah "keluar".
+      <div class="text-danger font-weight-bold">
+        <sup>*</sup>Status karyawan menandakan karyawan tersebut masih "aktif" atau sudah "keluar". 
       </div>
       <div class="table-responsive">
         <table class="table table-bordered" id="tabelKaryawan" width="100%" cellspacing="0">

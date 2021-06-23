@@ -27,4 +27,37 @@ $(document).ready(function() {
     });
   })
 
+  var tabelKeluar = $('#tabelKeluar').dataTable({
+    "processing" : true,
+    "serverSide" : true,
+    "order" : [],
+    "ajax" : {
+      url : "includes/fetch_tabelKeluar.inc.php",
+      type : "POST"
+    }
+  });
+
+  $('#tabelKeluar').on('draw.dt', function(){
+    $('#tabelKeluar').Tabledit({
+      url : 'includes/action_keluar.inc.php',
+      dataType : 'json',
+      hideIdentifier : true,
+      columns:{
+        identifier : [3, 'identifier'],
+        editable : [
+                    [1, 'uid'],
+                    [2, 'nama']
+                  ]
+      },
+      restoreButton : false,
+      editButton : false,
+      onSuccess : function(data, textStatus, jqXHR){
+        if(data.action == 'delete'){
+          $('#' + data.id).remove;
+          $('#tabelKeluar').DataTable().ajax.reload();
+        }
+      }
+    });
+  })
+
 });

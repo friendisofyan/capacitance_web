@@ -120,8 +120,8 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
           data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Perubahan Akun:</h6>
-            <a class="collapse-item" href="#">Penghapusan akun</a>
+            <h6 class="collapse-header">Perubahan Data:</h6>
+            <a class="collapse-item" href="delete_karyawan.php">Penghapusan Karyawan</a>
           </div>
         </div>
       </li>
