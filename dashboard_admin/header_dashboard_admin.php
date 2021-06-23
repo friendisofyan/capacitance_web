@@ -114,7 +114,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
+            <i class="fas fa-fw fa-users-cog"></i>
             <span>Zona Karyawan</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
@@ -153,6 +153,13 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
+      
+      <!-- Nav Item - Bantuan -->
+      <li class="nav-item">
+        <a class="nav-link" href="help.php">
+        <i class="fas fa-fw fa-question-circle"></i>
+          <span>Bantuan</span></a>
+      </li>
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
