@@ -29,7 +29,12 @@ function persenKehadiran ($conn, $userLevel, $pgwId, $today, $hariKerja){
     
     $jumlahKaryawan = jumlahKaryawan($conn);
 
-    $persenKehadiran = round((($jumlahHadir/$jumlahKaryawan)*100),2);
+    if ($jumlahKaryawan == 0) {
+      $persenKehadiran = 0;  
+    }
+    else{
+      $persenKehadiran = round((($jumlahHadir/$jumlahKaryawan)*100),2);
+    }
     mysqli_free_result($result);
     return $persenKehadiran;
   }
