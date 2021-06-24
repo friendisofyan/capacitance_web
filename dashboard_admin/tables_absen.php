@@ -25,7 +25,7 @@
                     echo '<input class="form-control" type="date" value="'.$date.'" id="tglAwalAbsn">';
                   ?>
                 </div>
-                <div class="col-xl-2"></div>
+                <div class="col-xl-1"></div>
                 <label for="tglAkhir" class="col-sm-1 col-lg-1 col-form-label col-md-2 responsive">Hingga:</label>
                 <div class="col-sm-6 col-xl-3">
                   <?php
@@ -33,9 +33,9 @@
                     echo '<input class="form-control" type="date" value="'.$date.'" id="tglAkhirAbsn">';
                   ?>
                 </div>
-                <div class="col-sm-12 col-xl-2 col-md-12 mt-2 mt-xl-0 text-right">
+                <div class="col-sm-12 col-xl-3 col-md-12 mt-2 mt-xl-0 text-right">
                   <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahAbsenModal">
-                    <i class="fa fa-plus-circle"></i> Tambah
+                    <i class="fa fa-plus-circle"></i> Tambah/Update
                   </button>
                 </div>
               </div>
