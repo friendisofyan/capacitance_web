@@ -34,14 +34,36 @@ if (!$conn) {
 }
 echo "Connected successfully to db <br>";
 
-<?php
-
-include_once("dbconn.inc.php");
+// include_once("dbconn.inc.php");
 
 $tableusers = "users";
 $tablepegawai = "pegawai";
 $tablepresensi = "presensi";
 $tableabsensi = "absensi";
+
+// Create pegawai table
+$sql = "CREATE TABLE IF NOT EXISTS $tablepegawai (
+  pgwId INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nama VARCHAR(128) NOT NULL,
+  uid VARCHAR(128) NOT NULL,
+  jabatan VARCHAR(128) NOT NULL,
+  email VARCHAR(128) NOT NULL,
+  gender ENUM('L', 'P'),
+  tglLahir VARCHAR(32),
+  telp VARCHAR(16),
+  alamat VARCHAR(128),
+  statusPgw ENUM('aktif',  'keluar'),
+  INDEX (pgwId),
+  INDEX (nama),
+  INDEX (uid),
+  INDEX (email)
+  );";
+if (mysqli_query($conn, $sql)) {
+echo "Table pegawai created successfully <br>";
+} 
+else {
+echo "Error creating table: " . mysqli_error($conn) . " <br>";
+}
 
 // Create users table
 $sql = "CREATE TABLE IF NOT EXISTS $tableusers (
@@ -50,36 +72,12 @@ $sql = "CREATE TABLE IF NOT EXISTS $tableusers (
         usersEmail VARCHAR(128) NOT NULL,
         usersUid VARCHAR(128) NOT NULL,
         usersPwd VARCHAR(128) NOT NULL,
-        INDEX (usersName),
-        INDEX (usersUid),
-        INDEX (usersEmail)
+        FOREIGN KEY (usersName) REFERENCES pegawai(nama) ON DELETE NO ACTION ON UPDATE CASCADE,
+        FOREIGN KEY (usersUid) REFERENCES pegawai(uid) ON DELETE NO ACTION ON UPDATE CASCADE,
+        FOREIGN KEY (usersEmail) REFERENCES pegawai(email) ON DELETE NO ACTION ON UPDATE CASCADE
         );";
 if (mysqli_query($conn, $sql)) {
   echo "Table users created successfully <br>";
-} 
-else {
-  echo "Error creating table: " . mysqli_error($conn) . " <br>";
-}
-
-
-// Create pegawai table
-$sql = "CREATE TABLE IF NOT EXISTS $tablepegawai (
-        pgwId INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        nama VARCHAR(128) NOT NULL,
-        uid VARCHAR(128) NOT NULL,
-        jabatan VARCHAR(128) NOT NULL,
-        email VARCHAR(128) NOT NULL,
-        gender ENUM('L', 'P'),
-        tglLahir VARCHAR(32),
-        telp VARCHAR(16),
-        alamat VARCHAR(128),
-        statusPgw ENUM('aktif',  'keluar'),
-        FOREIGN KEY (nama) REFERENCES users(usersName) ON DELETE RESTRICT ON UPDATE CASCADE,
-        FOREIGN KEY (email) REFERENCES users(usersEmail) ON DELETE RESTRICT ON UPDATE CASCADE,
-        FOREIGN KEY (uid) REFERENCES users(usersUid) ON DELETE RESTRICT ON UPDATE CASCADE
-        );";
-if (mysqli_query($conn, $sql)) {
-  echo "Table pegawai created successfully <br>";
 } 
 else {
   echo "Error creating table: " . mysqli_error($conn) . " <br>";
@@ -94,9 +92,9 @@ $sql = "CREATE TABLE IF NOT EXISTS $tablepresensi (
         temperature VARCHAR(6),
         jamMasuk TIME,
         jamKeluar TIME,
-        overtime  TIME,
-        FOREIGN KEY (pgwID) REFERENCES pegawai(pgwID) ON DELETE RESTRICT ON UPDATE CASCADE,
-        FOREIGN KEY (nama) REFERENCES pegawai(nama) ON DELETE RESTRICT ON UPDATE CASCADE
+        durasi  TIME,
+        FOREIGN KEY (pgwID) REFERENCES pegawai(pgwID) ON DELETE NO ACTION ON UPDATE CASCADE,
+        FOREIGN KEY (nama) REFERENCES pegawai(nama) ON DELETE NO ACTION ON UPDATE CASCADE
         );";
 if (mysqli_query($conn, $sql)) {
   echo "Table presensi created successfully <br>";
@@ -113,9 +111,9 @@ $sql = "CREATE TABLE IF NOT EXISTS $tableabsensi (
         nama VARCHAR(128) NOT NULL,
         absnTgl DATE,
         absnStatus enum('cuti', 'ijin', 'sakit'),
-        absnKet VARCHAR(128),
-        FOREIGN KEY (pgwID) REFERENCES pegawai(pgwID) ON DELETE RESTRICT ON UPDATE CASCADE,
-        FOREIGN KEY (nama) REFERENCES pegawai(nama) ON DELETE RESTRICT ON UPDATE CASCADE
+        absnKet VARCHAR(500),
+        FOREIGN KEY (pgwID) REFERENCES pegawai(pgwID) ON DELETE NO ACTION ON UPDATE CASCADE,
+        FOREIGN KEY (nama) REFERENCES pegawai(nama) ON DELETE NO ACTION ON UPDATE CASCADE
         );";
 if (mysqli_query($conn, $sql)) {
   echo "Table absensi created successfully <br>";
@@ -138,7 +136,7 @@ else {
 }
 
 //create default admin account
-$adminName = "admin"
+$adminName = "admin";
 $adminUid = "admin";
 $adminPwd = password_hash("admin", PASSWORD_DEFAULT);
 $sql = "INSERT INTO admin (adminName, adminUid, adminPwd) VALUES ('$adminName', '$adminUid', '$adminPwd');";
@@ -149,4 +147,18 @@ else {
   echo "Error creating admin account: " . mysqli_error($conn) . " <br>";
 }
 
+//create deleted table
+$sql = "CREATE TABLE IF NOT EXISTS deleted (
+  pgwId int(10) PRIMARY KEY,
+  uid varchar(128) ,
+  nama varchar(128)
+);";
+if (mysqli_query($conn, $sql)) {
+echo "Table deleted created successfully <br>";
+} 
+else {
+echo "Error creating table: " . mysqli_error($conn) . " <br>";
+}
+
 mysqli_close($conn);
+
