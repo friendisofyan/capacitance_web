@@ -7,13 +7,25 @@
 <div class="container-fluid">
 
     <!-- heading hadir -->
-    <h1 class="h3 mb-2 text-gray-800">Detail Ketidakhadiran</h1>
+    <!-- <div class="card shadow mb-2 p-4">
+      <div class="h3 mb-2 text-gray-800">Detail Ketidakhadiran</div>
+      <div class="text-small">asdasda</div>
+    </div> -->
 
 
-    <!-- DataTales kehadiran -->
+    <!-- DataTables Absen -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Tabel Detail Ketidakhadiran Karyawan</h6>
+        <div class="card-header px-4 bg-gray">
+          <p class="h3 mb-2 text-dark">Detail Ketidakhadiran</p>
+          <p class="my-0">
+            Daftar dari karyawan yang tidak hadir pada tanggal tertentu berserta status dan keterangannya.
+          </p>
+          <p class="my-0">
+          Tombol tambah/update dapat menambah absensi atau mengubah status ataupun keterangan dari absensi yang sudah ada.
+          </p>
+          <p class="mb-2 text-justify">
+            Menambahkan absensi (tidak hadir) akan menghapus kehadiran pada tanggal tersebut. 
+          </p>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -34,7 +46,7 @@
                   ?>
                 </div>
                 <div class="col-sm-12 col-xl-3 col-md-12 mt-2 mt-xl-0 text-right">
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambahAbsenModal">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahAbsenModal">
                     <i class="fa fa-plus-circle"></i> Tambah/Update
                   </button>
                 </div>
@@ -61,7 +73,7 @@
   <div class="modal-dialog" role="update">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="tambahAbsenLabel">Tambah Absen</h5>
+        <h5 class="modal-title" id="tambahAbsenLabel">Tambah/Update Status Absen</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
