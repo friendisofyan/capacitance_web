@@ -4,17 +4,15 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-  <!-- Page Heading -->
-  <h1 class="h3 mb-4 text-gray-800">Data Karyawan</h1>
-  <div class="text-justify font-weight-bold col-xl-8">
-    Menonaktifkan status karyawan tidak akan menghapus data karyawan tersebut,
-    untuk menghapusnya silahkan ke halaman 
-    <a href="delete_karyawan.php">penghapusan akun</a>
-    namun diperlukan status "keluar" untuk menghapus data karyawan.
-  </div>
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Tabel Data Karyawan</h6>
+      <p class="h3 mb-2 text-gray-800">Data Karyawan</p>
+      <p class="text-justify font-weight-bold col-xl-8 mb-2">
+        Menonaktifkan status karyawan tidak akan menghapus data karyawan tersebut,
+        untuk menghapusnya silahkan ke halaman 
+        <a href="delete_karyawan.php">penghapusan akun</a>
+        namun diperlukan status "keluar" untuk menghapus data karyawan.
+      </p>
     </div>
     <div class="card-body">
       <div class="text-danger font-weight-bold">

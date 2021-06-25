@@ -6,14 +6,13 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <!-- heading hadir -->
-    <h1 class="h3 mb-2 text-gray-800">Daftar Hadir</h1>
-
-
     <!-- DataTales kehadiran -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Hadir per Hari</h6>
+          <p class="h3 mb-2 text-dark font-weight-bold">Daftar Hadir</p>
+          <p class="mb-2 text-justify font-weight-bold col-xl-9">
+            Daftar hadir karyawan perhari.
+          </p>
         </div>
         <div class="card-body">
             <div class="table-responsive">

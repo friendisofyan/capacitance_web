@@ -6,25 +6,14 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <!-- heading hadir -->
-    <!-- <div class="card shadow mb-2 p-4">
-      <div class="h3 mb-2 text-gray-800">Detail Ketidakhadiran</div>
-      <div class="text-small">asdasda</div>
-    </div> -->
-
-
     <!-- DataTables Absen -->
     <div class="card shadow mb-4">
         <div class="card-header px-4 bg-gray">
-          <p class="h3 mb-2 text-dark">Detail Ketidakhadiran</p>
-          <p class="my-0">
-            Daftar dari karyawan yang tidak hadir pada tanggal tertentu berserta status dan keterangannya.
-          </p>
-          <p class="my-0">
-          Tombol tambah/update dapat menambah absensi atau mengubah status ataupun keterangan dari absensi yang sudah ada.
-          </p>
-          <p class="mb-2 text-justify">
-            Menambahkan absensi (tidak hadir) akan menghapus kehadiran pada tanggal tersebut. 
+          <p class="h3 mb-2 text-dark font-weight-bold">Detail Ketidakhadiran</p>
+          <p class="mb-2 text-justify font-weight-bold col-xl-9">
+            *Daftar dari karyawan yang tidak hadir pada tanggal tertentu berserta status dan keterangannya.<br>
+            *Tombol tambah/update dapat menambah absensi atau mengubah detail dari absensi yang ada.<br>
+            *Menambahkan absensi (tidak hadir) akan menghapus kehadiran pada tanggal tersebut.<br>
           </p>
         </div>
         <div class="card-body">
