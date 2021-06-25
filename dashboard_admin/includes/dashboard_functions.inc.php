@@ -81,7 +81,7 @@ function getSelisihWeekdays(\DateTime $startDate, \DateTime $endDate, $hariKerja
 function jumlahSakit ($conn, $userLevel, $pgwId){
   $today = date('Y-m-d');
 
-  //jika admin maka akan menampilkan persentase kehadiran harian
+  //jika admin maka akan menampilkan jumlah karyawan sakit dan izin harian
   if ($userLevel == "admin") {
     $sql = "SELECT pgwId 
             FROM absensi 
@@ -96,7 +96,7 @@ function jumlahSakit ($conn, $userLevel, $pgwId){
     return $jumlahSakit;
   }
 
-  //jika user reguler maka menampilkan rekap kehadiran dalam 1 bulan
+  //jika user reguler maka menampilkan rekap sakit dan izin dalam 1 bulan
   //dari awal bulan tgl 1 sampai hari ini (today)
   elseif ($userLevel == "reguler") {
     $awal = date('Y-m-01');
@@ -140,7 +140,7 @@ function jumlahAbsen ($conn, $userLevel, $pgwId){
             FROM absensi 
             WHERE (absnTgl BETWEEN '$awal' AND '$today') 
             AND (pgwId = '$pgwId')
-            AND (absnStatus IS NULL)
+            AND (absnStatus IS NULL OR absnStatus = '')
             GROUP BY absnTgl";
     $result = mysqli_query($conn, $sql);
     $jumlahAbsen = mysqli_num_rows($result);
