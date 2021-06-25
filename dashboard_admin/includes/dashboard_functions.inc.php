@@ -117,12 +117,12 @@ function jumlahSakit ($conn, $userLevel, $pgwId){
 function jumlahAbsen ($conn, $userLevel, $pgwId){
   $today = date('Y-m-d');
 
-  //jika admin maka akan menampilkan persentase kehadiran harian
+  //jika admin maka akan menampilkan jumlah karyawan absen pada hari itu
   if ($userLevel == "admin") {
     $sql = "SELECT pgwId 
             FROM absensi 
             WHERE (absnTgl = '$today') AND 
-            (absnStatus IS NULL)
+            (absnStatus IS NULL OR absnStatus = '')
             GROUP BY pgwId";
     
     $result = mysqli_query($conn, $sql);
@@ -132,7 +132,7 @@ function jumlahAbsen ($conn, $userLevel, $pgwId){
     return $jumlahAbsen;
   }
 
-  //jika user reguler maka menampilkan rekap kehadiran dalam 1 bulan
+  //jika user reguler maka menampilkan rekap absen dalam 1 bulan
   //dari awal bulan tgl 1 sampai hari ini (today)
   elseif ($userLevel == "reguler") {
     $awal = date('Y-m-01');
