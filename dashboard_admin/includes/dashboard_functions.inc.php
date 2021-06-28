@@ -1,5 +1,8 @@
 <?php
-  // $timezone = date_default_timezone_get();
+  session_start();
+  error_reporting(E_ALL & ~E_NOTICE);
+  include_once("dbconn.inc.php");
+
   date_default_timezone_set('Asia/Jakarta');
 
   $configFilepath = $_SERVER['DOCUMENT_ROOT'].'/config.ini';
@@ -7,6 +10,32 @@
   $config = new Config;
   $config->load($configFilepath);
   $hariKerja = intval($config->get('hari_kerja.hari'));
+
+if (isset($_POST["gantiHariKerja"])) {
+  $new = $_POST["newHariKerja"];
+  updateHarikerja($new, $config, $configFilepath);
+  header('Location: ../index.php');
+  // header("location:javascript://history.go(-1)");
+  exit();
+}
+
+if (isset($_POST["gantiPwd"])) {
+  $oldPwd = $_POST["oldPwd"];
+  $newPwd = $_POST["newPwd"];
+  $rePwd = $_POST["rePwd"];
+  $uid = $_SESSION["useruid"];
+  $userLevel = $_SESSION["userlevel"];
+
+  if ($rePwd != $newPwd) {
+    header("location: ../ubah_password.php?error=notMatch");
+    exit();
+  }
+  else{
+    changePwd($conn, $userLevel, $uid, $oldPwd, $newPwd);
+  }
+
+  echo "$oldPwd, $newPwd, $rePwd, $uid, $userLevel";
+}
 
 function jumlahKaryawan($conn){
   $sql = "SELECT pgwId FROM pegawai WHERE 1";
@@ -61,7 +90,6 @@ function persenKehadiran ($conn, $userLevel, $pgwId, $today, $hariKerja){
   }
   
 }
-
 
 function getSelisihWeekdays(\DateTime $startDate, \DateTime $endDate, $hariKerja){
   $isWeekday = function (\DateTime $date) use($hariKerja) {
@@ -150,14 +178,6 @@ function jumlahAbsen ($conn, $userLevel, $pgwId){
   }
 }
 
-if (isset($_POST["gantiHariKerja"])) {
-  $new = $_POST["newHariKerja"];
-  updateHarikerja($new, $config, $configFilepath);
-  header('Location: ../index.php');
-  // header("location:javascript://history.go(-1)");
-  exit();
-}
-
 function updateHarikerja ($new, $config, $configFilepath){
   $format = array(
     "hari_kerja" => array(
@@ -190,5 +210,68 @@ function showPegawai ($conn){
   //print option satu persatu 
   foreach($pegawais as $pegawai){
     echo '<option value="'.$pegawai.'">';
+  }
+}
+
+function changePwd ($conn, $userLevel, $uid, $oldPwd, $newPwd){
+  if ($userLevel === "admin") {
+    $sql = "SELECT adminPwd FROM admin WHERE adminUid =?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, 's', $uid);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_array($result);
+    $dbPwd = $row[0];
+    mysqli_free_result($result);
+    mysqli_stmt_close($stmt);
+
+    $checkPwd = password_verify($oldPwd, $dbPwd);
+    // jika password lama tidak sesuai akan dikirim kembali ke ke halaman ganti password
+    if (!$checkPwd) {
+      header('location: ../ubah_password.php?error=wrongPassword');
+      exit();
+    }
+    // jika password lama sesuai maka akan lanjut ganti password
+    else{
+      $newPwd = password_hash($newPwd, PASSWORD_DEFAULT);
+
+      $sql = "UPDATE admin set adminPwd = ?
+              WHERE adminUid = ?";
+      $stmt = mysqli_prepare($conn, $sql);
+      mysqli_stmt_bind_param($stmt, 'ss', $pwd, $uid);
+      mysqli_stmt_execute($stmt);
+      header('location: ../ubah_password.php?error=none');
+      exit();
+    }
+  }
+
+  elseif ($userLevel == "reguler") {
+    $sql = "SELECT usersPwd FROM users WHERE usersUid =?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, 's', $pwd);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_array($result);
+    $dbPwd = $row[0];
+    mysqli_free_result($result);
+    mysqli_stmt_close($stmt);
+
+    $checkPwd = password_verify($oldPwd, $dbPwd);
+    // jika password lama tidak sesuai akan dikirim kembali ke ke halaman ganti password
+    if (!$checkPwd) {
+      header('location: ../ubah_password.php?error=wrongPassword');
+      exit();
+    }
+    // jika password lama sesuai maka akan lanjut ganti password
+    else{
+      $newPwd = password_hash($newPwd, PASSWORD_DEFAULT);
+
+      $sql = "UPDATE users set usersPwd = ?
+              WHERE usersUid = ?";
+      $stmt = mysqli_prepare($conn, $sql);
+      mysqli_stmt_bind_param($stmt, 'ss', $pwd, $uid);
+      mysqli_stmt_execute($stmt);
+      header('location: ../ubah_password.php?error=none');
+    }
   }
 }
