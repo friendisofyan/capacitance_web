@@ -1,5 +1,5 @@
 <?php
-  include_once("header_dashboard_admin.php");
+  include_once("header_dashboard.php");
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid col-xl-10">
@@ -54,7 +54,7 @@
 
 
 <?php
-  include_once("footer_dashboard_admin.php");
+  include_once("footer_dashboard.php");
 ?>
 
 <!-- Page level custom scripts -->
