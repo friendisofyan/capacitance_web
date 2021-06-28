@@ -238,7 +238,7 @@ function changePwd ($conn, $userLevel, $uid, $oldPwd, $newPwd){
       $sql = "UPDATE admin set adminPwd = ?
               WHERE adminUid = ?";
       $stmt = mysqli_prepare($conn, $sql);
-      mysqli_stmt_bind_param($stmt, 'ss', $pwd, $uid);
+      mysqli_stmt_bind_param($stmt, 'ss', $newPwd, $uid);
       mysqli_stmt_execute($stmt);
       header('location: ../ubah_password.php?error=none');
       exit();
@@ -248,7 +248,7 @@ function changePwd ($conn, $userLevel, $uid, $oldPwd, $newPwd){
   elseif ($userLevel == "reguler") {
     $sql = "SELECT usersPwd FROM users WHERE usersUid =?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, 's', $pwd);
+    mysqli_stmt_bind_param($stmt, 's', $uid);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     $row = mysqli_fetch_array($result);
@@ -269,7 +269,7 @@ function changePwd ($conn, $userLevel, $uid, $oldPwd, $newPwd){
       $sql = "UPDATE users set usersPwd = ?
               WHERE usersUid = ?";
       $stmt = mysqli_prepare($conn, $sql);
-      mysqli_stmt_bind_param($stmt, 'ss', $pwd, $uid);
+      mysqli_stmt_bind_param($stmt, 'ss', $newPwd, $uid);
       mysqli_stmt_execute($stmt);
       header('location: ../ubah_password.php?error=none');
     }
