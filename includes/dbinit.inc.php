@@ -106,7 +106,7 @@ else {
 
 //create absensi table
 $sql = "CREATE TABLE IF NOT EXISTS $tableabsensi (
-	      absnId INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	      absnId INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         pgwId INT(10) UNSIGNED NOT NULL,
         nama VARCHAR(128) NOT NULL,
         absnTgl DATE,
@@ -149,7 +149,7 @@ else {
 
 //create deleted table
 $sql = "CREATE TABLE IF NOT EXISTS deleted (
-  pgwId int(10) PRIMARY KEY,
+  pgwId int(10) UNSIGNED PRIMARY KEY,
   uid varchar(128) ,
   nama varchar(128)
 );";
