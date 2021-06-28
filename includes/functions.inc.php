@@ -23,7 +23,6 @@ function invalidUid($username){
 }
 
 function pwdMatch($pwd, $repwd){
-  $result;
   if ($pwd !== $repwd) {
     $result = true;
   }
@@ -140,7 +139,7 @@ function loginUser($conn, $username, $pwd){
 
     if ($isAdmin === true) {
       $_SESSION["username"] = $adminExist["adminName"];
-      $_SESSION["useruid"] = $uidExist["adminUid"];
+      $_SESSION["useruid"] = $adminExist["adminUid"];
       $_SESSION["userlevel"] = "admin";
     }
     else {
