@@ -139,7 +139,8 @@ function loginUser($conn, $username, $pwd){
     $_SESSION["loggedin"] = true;
 
     if ($isAdmin === true) {
-      $_SESSION["username"] = $adminExist["adminUid"];
+      $_SESSION["username"] = $adminExist["adminName"];
+      $_SESSION["useruid"] = $uidExist["adminUid"];
       $_SESSION["userlevel"] = "admin";
     }
     else {
