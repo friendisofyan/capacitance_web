@@ -1,7 +1,14 @@
 $(document).ready(function () {
   var selector = 'harian';
   showGraphArea(selector);
+
+  setInterval(function () {
+    window.areaGraph.destroy();
+    showGraphArea(selector);
+  }, 30000);
+  
 });
+
 
 
 function showGraphArea(selector)

@@ -76,4 +76,9 @@ $(document).ready(function() {
     });
   })
 
+  setInterval(function () {
+    $('#tabelKehadiran').DataTable().ajax.reload(null, false);
+    $('#tabelAbsen').DataTable().ajax.reload(null, false);
+  }, 30000);
+
 });
