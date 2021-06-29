@@ -32,9 +32,8 @@ if (isset($_POST["gantiPwd"])) {
   }
   else{
     changePwd($conn, $userLevel, $uid, $oldPwd, $newPwd);
+    exit();
   }
-
-  echo "$oldPwd, $newPwd, $rePwd, $uid, $userLevel";
 }
 
 function jumlahKaryawan($conn){
