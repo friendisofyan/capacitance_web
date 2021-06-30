@@ -92,7 +92,7 @@
 
       <div class="modal-footer">
         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        <button class="btn btn-primary" type="submit" name="submit" form="formEditProfile">Submit</button>
+        <button class="btn btn-primary" type="submit" name="updateProfile" form="formEditProfile">Submit</button>
       </div>
     </div>
   </div>

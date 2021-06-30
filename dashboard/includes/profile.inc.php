@@ -1,7 +1,7 @@
 <?php
 include_once('dbconn.inc.php');
 
-if (isset($_POST["submit"])) {
+if (isset($_POST["updateProfile"])) {
   $pgwId = $_POST['pgwId'];
   $email = $_POST['email'];
   $gender = $_POST['gender'];
