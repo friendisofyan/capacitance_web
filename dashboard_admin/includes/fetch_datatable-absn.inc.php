@@ -1,7 +1,6 @@
 <?php
 include_once('dbconn.inc.php');
 
-// $tgl = '2021-05-09';
 if (isset($_POST["tglAwal"]) && isset($_POST["tglAkhir"])) {
   $tglAwal = $_POST["tglAwal"];
   $tglAkhir = $_POST["tglAkhir"];
@@ -49,11 +48,4 @@ if (isset($_POST["tglAwal"]) && isset($_POST["tglAkhir"])) {
 
   $json_data = array("data" => $data);
   echo json_encode($json_data);
-  
 }
-else {
-  $data = array("----");
-  $json_data = array("data" => $data);
-  echo json_encode($json_data);
-}
-

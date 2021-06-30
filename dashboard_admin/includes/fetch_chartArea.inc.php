@@ -57,11 +57,6 @@ elseif ($selector == "bulanan"){
   echo json_encode($result);
 }
 
-
-function fetchDataPerhari($conn, $start, $end, $hariKerja){
-  
-}
-
 function kehadiranPerbulan($conn, $bulan, $hariKerja){
   $jumlahKaryawan = jumlahKaryawan($conn);
 
