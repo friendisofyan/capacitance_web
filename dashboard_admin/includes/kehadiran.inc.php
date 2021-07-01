@@ -40,6 +40,9 @@ if (isset($_POST["absen"])) {
   $ket = $_POST['ket'];
 
   $check = absensi($conn, $pgwId, $nama, $tgl, $status, $ket);
+  if ($status === '') {
+    $status = NULL;
+  }
   if ($check === "ERROR") {
     header("location: ../tables_absen.php?err=error-inserting");
     exit();
