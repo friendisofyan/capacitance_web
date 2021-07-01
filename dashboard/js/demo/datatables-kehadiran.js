@@ -25,7 +25,7 @@ $(document).ready(function() {
   });
 
   $('#tglAwalPrsn, #tglAkhirPrsn').change(function(){
-    tableHadir.dataTable().api().ajax.reload();
+    tableHadir.DataTable().ajax.reload();
   });
 
 
@@ -49,7 +49,7 @@ $(document).ready(function() {
   });
 
   $('#tglAwalAbsn, #tglAkhirAbsn').change(function(){
-    tableAbsen.dataTable().api().ajax.reload();
+    tableAbsen.DataTable().ajax.reload();
   });
 
 });
