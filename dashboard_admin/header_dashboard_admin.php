@@ -155,11 +155,11 @@
       <hr class="sidebar-divider d-none d-md-block">
       
       <!-- Nav Item - Bantuan -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="help.php">
         <i class="fas fa-fw fa-question-circle"></i>
           <span>Bantuan</span></a>
-      </li>
+      </li> -->
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
