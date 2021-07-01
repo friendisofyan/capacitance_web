@@ -24,7 +24,7 @@ if (isset($_POST["pgwId"])) {
 
   $sql = "SELECT absnId FROM absensi
           WHERE pgwId = '$pgwId' AND
-          absnStatus IS NOT NULL AND
+          (absnStatus IS NOT NULL AND absnStatus != '')AND
           absnTgl BETWEEN '$start' AND '$end'
           GROUP BY absnTgl";
   if ($result=mysqli_query($conn,$sql)){
@@ -37,7 +37,7 @@ if (isset($_POST["pgwId"])) {
 
   $sql = "SELECT absnId FROM absensi
           WHERE pgwId = '$pgwId' AND
-          absnStatus IS NULL AND
+          (absnStatus IS NULL OR absnStatus ='') AND
           absnTgl BETWEEN '$start' AND '$end'
           GROUP BY absnTgl";
   if ($result=mysqli_query($conn,$sql)){
