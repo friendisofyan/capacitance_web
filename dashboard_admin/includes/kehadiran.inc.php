@@ -36,13 +36,15 @@ if (isset($_POST["absen"])) {
   $nama = $id_array[1];
   
   $tgl = $_POST['tgl'];
-  $status = $_POST['status'];
   $ket = $_POST['ket'];
-
-  $check = absensi($conn, $pgwId, $nama, $tgl, $status, $ket);
-  if ($status === '') {
+  if($_POST['status'] === ''){
     $status = NULL;
   }
+  else{
+    $status = $_POST['status'];
+  }
+
+  $check = absensi($conn, $pgwId, $nama, $tgl, $status, $ket);
   if ($check === "ERROR") {
     header("location: ../tables_absen.php?err=error-inserting");
     exit();
