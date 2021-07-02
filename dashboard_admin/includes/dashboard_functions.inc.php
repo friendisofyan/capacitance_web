@@ -37,7 +37,7 @@ if (isset($_POST["gantiPwd"])) {
 }
 
 function jumlahKaryawan($conn){
-  $sql = "SELECT pgwId FROM pegawai WHERE 1";
+  $sql = "SELECT pgwId FROM pegawai WHERE statusPgw='aktif'";
   $result = mysqli_query($conn, $sql);
   $jumlah = mysqli_num_rows($result);
   mysqli_free_result($result);
