@@ -3,7 +3,7 @@ include_once('dbconn.inc.php');
 
 $column = array("prsnId", "nama", "temperature", "jamMasuk", "jamKeluar", "durasi");
 
-$sql1 = "SELECT d.pgwId, d.nama 
+$sql1 = "SELECT d.pgwId, d.nama, d.statusPgw
           FROM pegawai d ";
 
 $sql2 = "SELECT *
@@ -12,7 +12,7 @@ $sql2 = "SELECT *
 if (isset($_POST["tgl"])) {
   $tgl = $_POST["tgl"];
 
-  $sql1 .= "WHERE d.pgwId NOT IN (SELECT pgwId FROM presensi Where prsnTgl = '$tgl')";
+  $sql1 .= "WHERE d.pgwId NOT IN (SELECT pgwId FROM presensi Where prsnTgl = '$tgl') AND (d.statusPgw = 'aktif') ";
   $sql2 .= "WHERE prsnTgl = '$tgl' ";
 }
 
