@@ -64,6 +64,9 @@ function persenKehadiran ($conn, $userLevel, $pgwId, $today, $hariKerja){
       $persenKehadiran = round((($jumlahHadir/$jumlahKaryawan)*100),2);
     }
     mysqli_free_result($result);
+    if ($persenKehadiran > 100) {
+      return 100;
+    }
     return $persenKehadiran;
   }
 

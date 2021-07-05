@@ -92,5 +92,9 @@ function kehadiranPerbulan($conn, $bulan, $hariKerja){
   $jumlahHari = getSelisihWeekdays(new DateTime($awal), new DateTime($akhir), $hariKerja);
 
   $persenKehadiran = ($jumlahKehadiran/($jumlahKaryawan * $jumlahHari))*100;
-  return round($persenKehadiran,2);
+  $persenKehadiran = round($persenKehadiran,2);
+  if ($persenKehadiran > 100) {
+    return 100;
+  }
+  return $persenKehadiran;
 }
