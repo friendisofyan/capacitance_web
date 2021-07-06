@@ -116,7 +116,7 @@ function jumlahSakit ($conn, $userLevel, $pgwId){
     $sql = "SELECT pgwId 
             FROM absensi 
             WHERE (absnTgl = '$today') AND 
-            (absnStatus = 'sakit')
+            (absnStatus IS NOT NULL)
             GROUP BY pgwId";
     
     $result = mysqli_query($conn, $sql);
