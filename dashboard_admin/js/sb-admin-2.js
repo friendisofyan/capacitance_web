@@ -54,3 +54,35 @@
   });
 
 })(jQuery); // End of use strict
+
+$(document).ready(function() {
+  getData();
+
+  setInterval(function () {
+    getData();
+  }, 5000);
+});
+
+function showData(data, target){
+  console.log(data);
+  $(target).text(data);
+}
+
+function getData(){
+  $.ajax({
+    url : 'includes/ajax_function.inc.php',
+    type: 'POST',
+    dataType: 'json',
+    data : {
+      fungsi: 'getData', 
+      level: 'admin',
+      pgwId: 0
+    },
+    success: function (obj, textstatus) {
+      showData(obj.hadir, '#persenHadir');
+      showData(obj.pgw, '#jlhPgw');
+      showData(obj.sakit, '#jlhSakit');
+      showData(obj.absen, '#jlhAbsen');
+    }
+  })
+}

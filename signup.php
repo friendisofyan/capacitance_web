@@ -13,11 +13,11 @@
   </head>
 
   <body>
-      <div class="title">
+      <div class="title mt-1">
         <h1>Registration Form</h1>
       </div>
 
-      <div class="form-wrapper">
+      <div class="form-wrapper mb-2">
         <h3>Isikan Data Dirimu</h3>
         <form action="includes/signup.inc.php" method="post">
           <div class="grey"><label for="name"></label></div> 
@@ -49,30 +49,30 @@
         <?php
           if (isset($_GET["error"])) {
             if ($_GET["error"] == "emptyInput") {
-              echo "<p> <font color=red>Fill out all the forms!</font> </p>";
+              echo "<p class='text-danger'>Fill out all the forms!</p>";
             }
             elseif ($_GET["error"] == "invalidUsername") {
-              echo "<p> <font color=red>Username invalid!</font></p>";
+              echo "<p class='text-danger'>Username invalid!</p>";
             }
             elseif ($_GET["error"] == "passwordNotMatch") {
-              echo "<p> <font color=red>Password and re-type password don't match!</font></p>";
+              echo "<p class='text-danger'>Password and re-type password don't match!</p>";
             }
             elseif ($_GET["error"] == "stmtFailed") {
-              echo "<p> <font color=red>Oops something went wrong!</font></p>";
+              echo "<p class='text-danger'>Oops something went wrong!</p>";
             }
             elseif ($_GET["error"] == "usernameTaken") {
-              echo "<p> <font color=red>Username telah dipakai!</font></p>";
+              echo "<p class='text-danger'>Username telah dipakai!</p>";
             }
             elseif ($_GET["error"] == "notValid") {
-              echo "<p> <font color=red>Data tidak valid!</font></p>";
+              echo "<p class='text-danger'>Data tidak valid!</p>";
             }
             elseif ($_GET["error"] == "mailerError") {
-              echo "<p> <font color=red>Pastikan kamu terhubung ke internet dan memasukkan email yang benar!</font></p>";
+              echo "<p class='text-danger'>Pastikan kamu terhubung ke internet dan memasukkan email yang benar!</p>";
             }
             elseif ($_GET["error"] == "none") {
-              echo "Pendaftaran akun berhasil!";
+              echo "<p class='text-success'>Pendaftaran akun berhasil!";
               echo "<br>";
-              echo "silahkan lanjut ke halaman login";
+              echo "silahkan lanjut ke halaman login</p>";
             }
           }
         ?>
