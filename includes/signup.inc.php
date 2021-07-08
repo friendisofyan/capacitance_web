@@ -10,7 +10,7 @@ if (isset($_POST["submit"])) {
   $config->load($configFilepath);
 
   
-  $name = $_POST["name"];
+  $name = ucwords($_POST["name"]);
   $jabatan = $_POST["jabatan"];
   $email = strtolower($_POST["email"]);
   $username = strtolower($_POST["username"]);
