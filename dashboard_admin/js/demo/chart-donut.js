@@ -25,7 +25,6 @@ function showGraphDonut(pgwId)
       "pgwId" : pgwId,
     },
     success: function(data){
-      console.log(data);
       var dataset = [];
 
       dataset.push(data.hadir);

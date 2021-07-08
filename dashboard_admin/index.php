@@ -119,6 +119,15 @@
 
 <!-- Page level custom scripts -->
 <script src="js/demo/chart-area-index.js"></script>
+<script>
+$(document).ready(function() {
+  getData();
+
+  setInterval(function () {
+    getData();
+  }, 1000);
+});
+</script>
   
 </body>
 </html>

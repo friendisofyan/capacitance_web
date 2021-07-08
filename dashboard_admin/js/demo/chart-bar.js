@@ -20,7 +20,6 @@ function showGraph(tglAwal, tglAkhir)
       "tglAkhir" : tglAkhir
     },
     success: function(data){
-      console.log(data);
       var name = [];
       var counter = [];
 

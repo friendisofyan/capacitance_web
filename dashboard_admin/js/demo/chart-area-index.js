@@ -15,7 +15,6 @@ function showGraphArea(selector)
       "selector" : selector,
     },
     success: function(data){
-      console.log(data);
       var hari = [];
       var persen = [];
 

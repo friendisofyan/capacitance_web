@@ -55,16 +55,7 @@
 
 })(jQuery); // End of use strict
 
-$(document).ready(function() {
-  getData();
-
-  setInterval(function () {
-    getData();
-  }, 5000);
-});
-
 function showData(data, target){
-  console.log(data);
   $(target).text(data);
 }
 
